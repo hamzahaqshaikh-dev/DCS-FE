@@ -2,9 +2,9 @@ import React, {Suspense, useEffect, useState} from "react";
 import {Container} from "react-bootstrap";
 
 // utils
-import {toggleDocumentAttribute} from "@/utils";
+import {toggleDocumentAttribute} from "@/utils/index";
 import {useViewport} from "@/hooks/useViewPort";
-import {useLayoutContext} from "@/context/useLayoutContext.tsx";
+import {useLayoutContext} from "@/context/useLayoutContext";
 
 // code splitting and lazy loading
 // https://blog.logrocket.com/lazy-loading-components-in-react-16-6-6cea535c0b52

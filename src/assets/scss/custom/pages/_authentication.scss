@@ -2,17 +2,19 @@
 // authentication.scss
 //
 
-
 .bg-pattern {
-  background-image: url("/src/assets/images/bg-pattern-2.png");
-  background-size: cover;
+  // background-image: url("/src/assets/images/bg-pattern-2.png");
+  // background-size: cover;
+  border: 2px solid black;
+  border-right: 10px solid black;
+  border-bottom: 10px solid black;
+  border-top-right-radius: 15px;
 }
-
 
 // authentication pages background
 body {
   &.authentication-bg {
-    background-color: #00acc1;
+    // background-color: #00acc1;
     background-size: cover;
     background-position: center;
 
@@ -20,9 +22,44 @@ body {
       background-color: transparent !important;
     }
   }
+  .underscore {
+    text-decoration: underline;
+  }
+  .account-pages {
+    height: 100vh;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%; /* Adjust width as needed */
+      height: 100%;
+      background: linear-gradient(to right, white 40%, rgba(255, 255, 255, 0) 100%);
+      pointer-events: none; /* Ensures it doesn't interfere with clicks */
+    }
+  }
+  .welcome-heading {
+    font-weight: bold;
+  }
 
+  .highlighted-text {
+    color: $blue;
+  }
+  .subtitle {
+    font-size: $font-size-lg; /* Adjust as needed */
+    color: #777; /* Light gray */
+    font-weight: 400;
+  }
+
+  .highlight-text2 {
+    display: block; /* Ensures it appears on a new line */
+    font-weight: 500;
+  }
   &.authentication-bg-pattern {
-    background-image: url("/src/assets/images/bg-pattern.png");
+    background-image: url("/src/assets/dsc-images/login-background-pattern.png");
+    // background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
 }
 
@@ -80,14 +117,13 @@ body {
   }
 }
 
-
 @include media-breakpoint-down(lg) {
   .auth-fluid {
     display: block;
 
     .auth-fluid-form-box {
       max-width: 100%;
-      min-height: 100vh
+      min-height: 100vh;
     }
 
     .auth-fluid-right {

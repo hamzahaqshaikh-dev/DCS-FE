@@ -1,5 +1,5 @@
 import {Navigate, Route, RouteProps} from "react-router-dom";
-import {useAuthContext} from "@/context/useAuthContext.tsx";
+import {useAuthContext} from "@/context/useAuthContext";
 
 /**
  * Private Route forces the authorization before the route can be accessed

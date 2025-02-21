@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import LogoDark from "@/assets/images/logo-dark.png";
+import LogoDark from "@/assets/dsc-images/auth-logo.png";
 import LogoLight from "@/assets/images/logo-light.png";
 
 interface AccountLayoutProps {
@@ -10,11 +10,13 @@ interface AccountLayoutProps {
   bottomLinks?: any;
   isCombineForm?: boolean;
   children?: any;
+  heading?: string;
 }
 
 const AuthLayout = ({
   helpText,
   bottomLinks,
+  heading,
   children,
   isCombineForm,
 }: AccountLayoutProps) => {
@@ -36,45 +38,50 @@ const AuthLayout = ({
 
   return (
     <>
-      <div className="account-pages mt-5 mb-5">
+      <div className="account-pages">
         <Container>
-          <Row className="justify-content-center">
-            <Col md={8} lg={6} xl={isCombineForm ? 9 : 4}>
-              <Card className="bg-pattern">
+          <Row className="justify-content-between vh-100">   {/* Left Section */}
+            <Col md={6} className="left-section p-3 m-p-5 d-flex flex-column justify-content-between">
+              <img src={LogoDark} alt="Logo" className="mb-4" width={150} />
+              <div>
+                <h2 className="welcome-heading">
+                  Welcome to <span className="highlighted-text">DCS</span>
+                </h2>
+                <p className="subtitle">
+                  From Vision to Venue <br />
+                  <span className="highlight-text2">Streamlined & Impactful.</span>
+                </p>
+              </div>
+            </Col>
+            <Col
+              md={8}
+              lg={6}
+              xl={isCombineForm ? 9 : 4}
+              className="d-flex flex-column justify-content-center align-items-center ml-auto"
+            >
+              <Card className="bg-pattern w-100">
                 <Card.Body className="p-4">
-                  <div className="text-center w-75 m-auto">
-                    <div className="auth-brand">
-                      <Link to="/" className="logo logo-dark text-center">
-                        <span className="logo-lg">
-                          <img src={LogoDark} alt="" height="22" />
-                        </span>
-                      </Link>
-
-                      <Link to="/" className="logo logo-light text-center">
-                        <span className="logo-lg">
-                          <img src={LogoLight} alt="" height="22" />
-                        </span>
-                      </Link>
-                    </div>
-                    <p className="text-muted mb-4 mt-3">{helpText}</p>
+                  <div className="text-start m-auto">
+                    <span className="logo-lg">
+                      <h1>{heading}</h1>
+                    </span>
+                    <p className="text-muted">{helpText}</p>
                   </div>
                   {children}
                 </Card.Body>
               </Card>
-
-              {/* bottom links */}
-              {bottomLinks}
             </Col>
+
           </Row>
         </Container>
       </div>
 
-      <footer className="footer footer-alt">
+      {/* <footer className="footer footer-alt">
         2015 - {new Date().getFullYear()} &copy; UBold theme by{" "}
         <Link to="#" className="text-white-50">
           Coderthemes
         </Link>
-      </footer>
+      </footer> */}
     </>
   );
 };
