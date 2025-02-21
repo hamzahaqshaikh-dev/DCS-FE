@@ -87,11 +87,11 @@ const ProfileMenus = [
         icon: "fe-settings",
         redirectTo: "#",
     },
-    {
-        label: "Lock Screen",
-        icon: "fe-lock",
-        redirectTo: "/auth/lock-screen",
-    },
+    // {
+    //     label: "Lock Screen",
+    //     icon: "fe-lock",
+    //     redirectTo: "/auth/lock-screen",
+    // },
     {
         label: "Logout",
         icon: "fe-log-out",

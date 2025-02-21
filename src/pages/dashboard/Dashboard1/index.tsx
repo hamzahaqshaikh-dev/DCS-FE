@@ -82,11 +82,11 @@ const Dashboard1 = () => {
                 className="empty-state-img"
               />
               <h3 className="empty-state-title fw-bold mt-3 mb-2">No Event Added!</h3>
-              <p className="empty-state-text">
+              <p className="empty-state-text col-md-6 col-xl-6 mx-auto">
                 You haven’t submitted any event yet. To move forward with your hosting request,
                 please fill in the event’s feasibility assessment form.
               </p>
-              <Button className="btn-purple">Add New Event</Button>
+              <Button className="btn btn-primary border-0">Add New Event</Button>
             </div>
           </Col>
         </Row>

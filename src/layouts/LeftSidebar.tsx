@@ -33,11 +33,11 @@ const UserBox = () => {
             icon: FiSettings,
             redirectTo: "#",
         },
-        {
-            label: "Lock Screen",
-            icon: FiLock,
-            redirectTo: "/auth/lock-screen",
-        },
+        // {
+        //     label: "Lock Screen",
+        //     icon: FiLock,
+        //     redirectTo: "/auth/lock-screen",
+        // },
         {
             label: "Logout",
             icon: FiLogOut,

@@ -973,12 +973,12 @@ const authRoutes: RoutesProps[] = [
         element: <SignInSignUp/>,
         route: Route,
     },
-    {
-        path: "/auth/lock-screen",
-        name: "Lock Screen",
-        element: <LockScreen/>,
-        route: Route,
-    },
+    // {
+    //     path: "/auth/lock-screen",
+    //     name: "Lock Screen",
+    //     element: <LockScreen/>,
+    //     route: Route,
+    // },
     {
         path: "/auth/logout",
         name: "Logout",

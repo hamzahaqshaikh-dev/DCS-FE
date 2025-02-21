@@ -8,7 +8,7 @@ interface BreadcrumbItems {
 }
 
 interface PageTitleProps {
-  breadCrumbItems: Array<BreadcrumbItems>;
+  breadCrumbItems?: Array<BreadcrumbItems>;
   title: string;
 }
 
@@ -22,7 +22,7 @@ const PageTitle = (props: PageTitleProps) => {
         <div className="page-title-box">
           <div className="page-title-right">
             <Breadcrumb className="m-0">
-              <Breadcrumb.Item href="/">UBold</Breadcrumb.Item>
+              {props?.breadCrumbItems?.length ? <Breadcrumb.Item href="/">UBold</Breadcrumb.Item> : ''}
 
               {(props["breadCrumbItems"] || []).map((item, index) => {
                 return item.active ? (
@@ -37,7 +37,7 @@ const PageTitle = (props: PageTitleProps) => {
               })}
             </Breadcrumb>
           </div>
-          <h4 className="page-title">{props["title"]}</h4>
+          <h3 className="page-title text-uppercase">{props["title"]}</h3>
         </div>
       </Col>
     </Row>

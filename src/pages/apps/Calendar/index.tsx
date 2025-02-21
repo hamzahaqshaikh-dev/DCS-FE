@@ -86,190 +86,85 @@ const SidePanel = () => {
 };
 
 const CalendarApp = () => {
-  /*
-   * modal handeling
-   */
-  const [show, setShow] = useState<boolean>(false);
-  const onCloseModal = () => {
-    setShow(false);
-    setEventData({});
-    setDateInfo({});
-  };
-  const onOpenModal = () => setShow(true);
-  const [isEditable, setIsEditable] = useState<boolean>(false);
-
-  /*
-   * event data
-   */
-  const [events, setEvents] = useState<EventInput[]>([...defaultEvents]);
-  const [eventData, setEventData] = useState<EventInput>({});
-  const [dateInfo, setDateInfo] = useState<any>({});
-
-  useEffect(() => {
-    // create dragable events
-    let draggableEl = document.getElementById("external-events");
-    new Draggable(draggableEl!, {
-      itemSelector: ".external-event",
-    });
-  }, []);
-
-  /*
-    calendar events
-    */
-  // on date click
-  const onDateClick = (arg: DateClickArg) => {
-    setDateInfo(arg);
-    onOpenModal();
-    setIsEditable(false);
-  };
-
-  // on event click
-  const onEventClick = (arg: EventClickArg) => {
-    const event = {
-      id: String(arg.event.id),
-      title: arg.event.title,
-      className: arg.event.classNames[0],
-    };
-    setEventData(event);
-    setIsEditable(true);
-    onOpenModal();
-  };
-
-  // on drop
-  const onDrop = (arg: any) => {
-    const dropEventData = arg;
-    const title = dropEventData.draggedEl.title;
-    if (title == null) {
-    } else {
-      let newEvent = {
-        id: String(events.length + 1),
-        title: title,
-        start: dropEventData ? dropEventData.dateStr : new Date(),
-        className: dropEventData.draggedEl.attributes["data-class"]["value"],
-      };
-      const modifiedEvents = [...events];
-      modifiedEvents.push(newEvent);
-
-      setEvents(modifiedEvents);
-    }
-  };
-
-  /*
-    on add event 
-    */
-  const onAddEvent = (data: any) => {
-    const modifiedEvents = [...events];
-    const event = {
-      id: String(modifiedEvents.length + 1),
-      title: data.title,
-      start: Object.keys(dateInfo).length !== 0 ? dateInfo.date : new Date(),
-      className: data.className,
-    };
-    modifiedEvents.push(event);
-    setEvents(modifiedEvents);
-    onCloseModal();
-  };
-
-  /*
-    on update event
-    */
-  const onUpdateEvent = (data: any) => {
-    const modifiedEvents = [...events];
-    const idx = modifiedEvents.findIndex((e: any) => e["id"] === eventData!.id);
-    modifiedEvents[idx]["title"] = data.title;
-    modifiedEvents[idx]["className"] = data.className;
-    setEvents(modifiedEvents);
-    onCloseModal();
-    setIsEditable(false);
-  };
-
-  /*
-    on remove event
-    */
-  const onRemoveEvent = () => {
-    var modifiedEvents = [...events];
-    const idx = modifiedEvents.findIndex((e: any) => e["id"] === eventData!.id);
-    modifiedEvents.splice(idx, 1);
-    setEvents(modifiedEvents);
-    onCloseModal();
-  };
-
-  /**
-   * on event drop
-   */
-  const onEventDrop = (arg: any) => {
-    const modifiedEvents = [...events];
-    const idx = modifiedEvents.findIndex((e) => e["id"] === arg.event.id);
-    modifiedEvents[idx]["title"] = arg.event.title;
-    modifiedEvents[idx]["className"] = arg.event.classNames;
-    modifiedEvents[idx]["start"] = arg.event.start;
-    modifiedEvents[idx]["end"] = arg.event.end;
-    setEvents(modifiedEvents);
-    setIsEditable(false);
-  };
-
-  // create new event
-  const createNewEvent = () => {
-    setIsEditable(false);
-    onOpenModal();
-  };
 
   return (
     <>
-      <PageTitle
-        breadCrumbItems={[
-          { label: "Apps", path: "/apps/calendar" },
-          { label: "Calendar", path: "/apps/calendar", active: true },
-        ]}
-        title={"Calendar"}
-      />
-
+      <PageTitle title="Event Feasibility Assessment application" />
+      <p className="fs-5 text-black">Submit your Event Feasibility Assessment Application</p>
       <Row>
         <Col>
           <Card>
-            <Card.Body>
-              <Row>
-                <Col lg={3}>
-                  {/* add events */}
-                  <Button
-                    className="btn btn-lg font-16 btn-primary w-100"
-                    id="btn-new-event"
-                    onClick={createNewEvent}
-                  >
-                    <i className="mdi mdi-plus-circle-outline"></i> Create New
-                    Event
-                  </Button>
+            <Card.Body className="p-0">
+              <Row className="justify-content-between">
+                <Col lg={6}>
+                  <Card className="border">
+                    <Card.Body className="p-4">
+                      <p className="text-black">
+                        This application is designed to evaluate the feasibility of your event and assess its
+                        potential economic and social impact. By providing accurate details, you help ensure
+                        a smooth approval process and seamless event planning.
+                      </p>
 
-                  <SidePanel />
+                      <h5>What this Form Covers</h5>
+                      <ul>
+                        <li className="text-black">Key Event Information – Basic details about your event, including name, type, and dates.</li>
+                        <li className="text-black">Event Budget – Estimated costs, funding sources, and financial feasibility.</li>
+                        <li className="text-black">Event Impact – Expected economic and social contributions to the country.</li>
+                      </ul>
+
+                      <h5 className="text-black">Collaboration & Draft Saving</h5>
+                      <ul>
+                        <li className="text-black">You can save your progress as a draft at any time and return later to complete it.</li>
+                        <li className="text-black">Multiple team members can collaborate on filling out the form for efficiency.</li>
+                      </ul>
+
+                      <h5 className="text-black">Need Assistance?</h5>
+                      <p className="text-black">
+                        If you need any help during the application process, our support team is here to assist you.
+                        Please reach out to us at <a href="mailto:startegy@sc.qa">startegy@sc.qa</a> during business hours.
+                      </p>
+                    </Card.Body>
+                  </Card>
                 </Col>
-                <Col lg={9}>
-                  {/* fullcalendar control */}
-                  <Calendar
-                    onDateClick={onDateClick}
-                    onEventClick={onEventClick}
-                    onDrop={onDrop}
-                    onEventDrop={onEventDrop}
-                    events={events}
-                  />
+
+                <Col lg={4}>
+                  <h3 className="text-black">Estimated Time for Completion</h3>
+                  <p className="d-flex align-items-center pt-3 ps-3 text-black">
+                    <i className="mdi mdi-clock-outline me-2 fs-3"></i> 15 - 20 minutes
+                  </p>
+
+                  {/* Horizontal Line */}
+                  <hr className="my-3" />
+
+                  <h3 className="text-black mt-3">Documents Needed</h3>
+                  <Row>
+                    <Col xs={6}>
+                      <p><p className="mb-0">📌</p>Registration Certificate</p>
+                      <p><p className="mb-0">📌</p>Event Proposal Document</p>
+                      <p><p className="mb-0">📌</p>Previous Event Reports (if applicable)</p>
+                    </Col>
+                    <Col xs={6}>
+                      <p><p className="mb-0">📌</p>Budget Breakdown & Funding Sources</p>
+                      <p><p className="mb-0">📌</p>Sponsorship Agreements</p>
+                    </Col>
+                  </Row>
+
+                  {/* Horizontal Line */}
+                  <hr className="my-3" />
+
+                  <Button className="btn btn-lg font-16 btn-primary w-100">
+                    Start Application
+                  </Button>
+                  <hr className="my-3" />
                 </Col>
+
+
               </Row>
             </Card.Body>
           </Card>
         </Col>
       </Row>
 
-      {/* add new event modal */}
-      {show ? (
-        <AddEditEvent
-          isOpen={show}
-          onClose={onCloseModal}
-          isEditable={isEditable}
-          eventData={eventData}
-          onUpdateEvent={onUpdateEvent}
-          onRemoveEvent={onRemoveEvent}
-          onAddEvent={onAddEvent}
-        />
-      ) : null}
     </>
   );
 };
