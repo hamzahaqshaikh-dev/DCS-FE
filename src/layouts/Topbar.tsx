@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // components
 import TopbarSearch from "@/components/TopbarSearch";
@@ -18,9 +18,9 @@ import logoDark from "@/assets/images/logo-dark.png";
 import logoDark2 from "@/assets/images/logo-dark-2.png";
 import logoLight from "@/assets/images/logo-light.png";
 import logoLight2 from "@/assets/images/logo-light-2.png";
-import {useViewport} from "@/hooks/useViewPort";
-import {useLayoutContext} from "@/context/useLayoutContext.tsx";
-import {toggleDocumentAttribute} from "@/utils";
+import { useViewport } from "@/hooks/useViewPort";
+import { useLayoutContext } from "@/context/useLayoutContext.tsx";
+import { toggleDocumentAttribute } from "@/utils";
 
 export interface NotificationItem {
     id: number;
@@ -200,11 +200,11 @@ interface TopbarProps {
 }
 
 const Topbar = ({
-                    hideLogo,
-                    navCssClasses,
-                }: TopbarProps) => {
+    hideLogo,
+    navCssClasses,
+}: TopbarProps) => {
 
-    const {width} = useViewport();
+    const { width } = useViewport();
 
     const {
         menu,
@@ -276,77 +276,50 @@ const Topbar = ({
             <div className={`navbar-custom ${navbarCssClasses}`}>
                 <div className={`topbar ${containerCssClasses}`}>
                     <div className="topbar-menu d-flex align-items-center gap-1">
-                        {!hideLogo && (
-                            <div className="logo-box">
-                                <Link to="/" className="logo logo-dark text-center">
-                  <span className="logo-sm">
-                    <img src={logoSm} alt="" height="22"/>
-                  </span>
-                                    <span className="logo-lg">
-                    <img
-                        src={
-                            orientation === 'two-column'
-                                ? logoDark2
-                                : logoDark
-                        }
-                        alt=""
-                        height="20"
-                    />
-                  </span>
-                                </Link>
-                                <Link to="/" className="logo logo-light text-center">
-                  <span className="logo-sm">
-                    <img src={logoSm} alt="" height="22"/>
-                  </span>
-                                    <span className="logo-lg">
-                    <img
-                        src={
-                            orientation === 'two-column'
-                                ? logoLight2
-                                : logoLight
-                        }
-                        alt=""
-                        height="20"
-                    />
-                  </span>
-                                </Link>
-                            </div>
-                        )}
 
                         <button
                             className="button-toggle-menu"
                             onClick={handleLeftMenuCallBack}
                         >
-                            <i className="mdi mdi-menu"/>
+                            <i className="mdi mdi-menu" />
                         </button>
-
+                        <div className="d-flex align-items-center">
+                            <h4 className="welcome-heading">
+                                SC360&deg; <span className="highlighted-text">DCS</span>
+                            </h4>
+                            <span className="Pipe"></span>
+                            <h6 className="welcome-heading text-uppercase">
+                                Dashboard
+                            </h6>
+                        </div>
+                        {/* 
                         <div className="dropdown d-none d-xl-block">
-                            <CreateNew otherOptions={otherOptions}/>
+                            <CreateNew otherOptions={otherOptions} />
                         </div>
 
                         <div className="dropdown dropdown-mega d-none d-xl-block">
-                            <MegaMenu subMenus={MegaMenuOptions}/>
-                        </div>
+                            <MegaMenu subMenus={MegaMenuOptions} />
+                        </div> */}
                     </div>
 
                     <ul className="topbar-menu d-flex align-items-center">
-                        <li className="app-search dropdown d-none d-lg-block">
-                            <TopbarSearch items={SearchResults}/>
-                        </li>
+                        {/* <li className="app-search dropdown d-none d-lg-block">
+                            <TopbarSearch items={SearchResults} />
+                        </li> */}
                         {/* <li className="dropdown d-inline-block d-lg-none">
               <SearchDropdown />
             </li> */}
-                        <li className="dropdown d-none d-lg-inline-block">
-                            <MaximizeScreen/>
+                        {/* <li className="dropdown d-none d-lg-inline-block">
+                            <MaximizeScreen />
                         </li>
                         <li className="dropdown d-none d-lg-inline-block topbar-dropdown">
-                            <AppsDropdown/>
+                            <AppsDropdown />
                         </li>
                         <li className="dropdown d-none d-lg-inline-block topbar-dropdown">
-                            <LanguageDropdown/>
-                        </li>
+                            <LanguageDropdown />
+                        </li> */}
                         <li className="dropdown notification-list">
-                            <NotificationDropdown notifications={Notifications}/>
+                            <NotificationDropdown notifications={Notifications} />
                         </li>
                         <li className="dropdown">
                             <ProfileDropdown
@@ -356,14 +329,14 @@ const Topbar = ({
                                 userTitle={"Founder"}
                             />
                         </li>
-                        <li>
+                        {/* <li>
                             <button
                                 className="nav-link dropdown-toggle right-bar-toggle waves-effect waves-light btn btn-link shadow-none"
                                 onClick={themeCustomizer.toggle}
                             >
                                 <i className="fe-settings noti-icon font-22"></i>
                             </button>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </div>

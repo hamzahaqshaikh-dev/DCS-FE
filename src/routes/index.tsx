@@ -219,11 +219,11 @@ const dashboardRoutes: RoutesProps = {
         {
             path: "/",
             name: "Root",
-            element: <Navigate to="/dashboard-1"/>,
+            element: <Navigate to="/organization-dashboard"/>,
             route: PrivateRoute,
         },
         {
-            path: "/dashboard-1",
+            path: "/organization-dashboard",
             name: "Dashboard 1",
             element: <Dashboard1/>,
             route: PrivateRoute,

@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 
 
 const Root = () => {
-  return <Navigate to={`/dashboard-1`} />;
+  return <Navigate to={`/organization-dashboard`} />;
 };
 
 export default Root;

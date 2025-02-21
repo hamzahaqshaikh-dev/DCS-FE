@@ -1,10 +1,10 @@
-import React, {Suspense, useEffect, useState} from "react";
-import {Container} from "react-bootstrap";
+import React, { Suspense, useEffect, useState } from "react";
+import { Container } from "react-bootstrap";
 
 // utils
-import {useViewport} from "@/hooks/useViewPort";
-import {toggleDocumentAttribute} from "@/utils";
-import {useLayoutContext} from "@/context/useLayoutContext.tsx";
+import { useViewport } from "@/hooks/useViewPort";
+import { toggleDocumentAttribute } from "@/utils";
+import { useLayoutContext } from "@/context/useLayoutContext";
 
 // code splitting and lazy loading
 // https://blog.logrocket.com/lazy-loading-components-in-react-16-6-6cea535c0b52
@@ -19,9 +19,9 @@ interface VerticalLayoutProps {
     children?: any;
 }
 
-const DetachedLayout = ({children}: VerticalLayoutProps) => {
+const DetachedLayout = ({ children }: VerticalLayoutProps) => {
 
-    const {width} = useViewport();
+    const { width } = useViewport();
 
     const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false);
 
@@ -114,7 +114,7 @@ const DetachedLayout = ({children}: VerticalLayoutProps) => {
                     />
                 </Suspense>
                 <Suspense fallback={loading()}>
-                    <LeftSidebar isCondensed={isCondensed}/>
+                    <LeftSidebar isCondensed={isCondensed} />
                 </Suspense>
 
                 <div className="content-page">
@@ -123,15 +123,14 @@ const DetachedLayout = ({children}: VerticalLayoutProps) => {
                             <Suspense fallback={loading()}>{children}</Suspense>
                         </Container>
                     </div>
-
-                    <Suspense fallback={loading()}>
-                        <Footer/>
-                    </Suspense>
                 </div>
+                <Suspense fallback={loading()}>
+                    <Footer />
+                </Suspense>
             </div>
             {themeCustomizer.open && (
                 <Suspense fallback={loading()}>
-                    <RightSidebar/>
+                    <RightSidebar />
                 </Suspense>
             )}
         </>

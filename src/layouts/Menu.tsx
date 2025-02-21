@@ -32,7 +32,7 @@ const MenuItemWithChildren = ({
 
   useEffect(() => {
     setOpen(activeMenuItems!.includes(item.key));
-  }, [activeMenuItems, item]);
+  }, [activeMenuItems, item, location]);
 
   const toggleMenuItem = () => {
     const status = !open;
@@ -120,14 +120,13 @@ const MenuItemWithChildren = ({
 const MenuItem = ({ item, className, linkClassName }: SubMenus) => {
   return (
     <li className={classNames("menu-item", className)}>
-      <MenuItemLink item={item} className={linkClassName} />
+      <MenuItemLink item={item} className={className} />
     </li>
   );
 };
 
 const MenuItemLink = ({ item, className }: SubMenus) => {
-
-  const Icon = item.icon
+  const Icon = className === 'menuitem-active' ? item.iconWhite : item.iconBlack
   return (
     <Link
       to={item.url!}
@@ -137,10 +136,10 @@ const MenuItemLink = ({ item, className }: SubMenus) => {
     >
       {Icon && (
         <span className="menu-icon">
-          <Icon />{" "}
+          <img src={Icon} alt={item.label} />
         </span>
       )}
-      <span className="menu-text"> {item.label} </span>
+      <span className="menu-text ms-2 text-uppercase fw-bold"> {item.label} </span>
       {item.badge && (
         <span className={`badge bg-${item.badge.variant} `}>
           {item.badge.text}
@@ -163,7 +162,7 @@ const AppMenu = ({ menuItems }: AppMenuProps) => {
   const menuRef: any = useRef(null);
 
   const [activeMenuItems, setActiveMenuItems] = useState<Array<string>>([]);
-
+  console.log('activeMenuItems =>', activeMenuItems)
   /*
    * toggle the menus
    */
@@ -207,7 +206,7 @@ const AppMenu = ({ menuItems }: AppMenuProps) => {
   useEffect(() => {
     activeMenu();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [location]);
 
   return (
     <>

@@ -58,7 +58,7 @@ $grays: (
 // scss-docs-start color-variables
 $blue:       #3A8DDE;
 $indigo:     #675aa9;
-$purple:     #6658dd;
+$purple:     #612166;
 $pink:       #f672a7;
 $red:        #f1556c;
 $orange:     #fd7e14;
@@ -66,6 +66,7 @@ $yellow:     #f7b84b;
 $green:      #1abc9c;
 $teal:       #02a8b5;
 $cyan:       #43bfe5;
+$menu-active-bg-color:       #00BBB4;
 // scss-docs-end color-variables
 
 // scss-docs-start colors-map
@@ -82,6 +83,7 @@ $colors: (
   "cyan":       $cyan,
   "black":      $black,
   "white":      $white,
+  "menu-active-bg-color":      $menu-active-bg-color,
   "gray":       $gray-600,
   "gray-dark":  $gray-800
 );
@@ -318,7 +320,7 @@ $cyans: (
 // fusv-enable
 
 // scss-docs-start theme-color-variables
-$primary:       $blue;
+$primary:       $purple;
 $secondary:     $gray-700;
 $success:       $green;
 $info:          $cyan;
@@ -345,7 +347,7 @@ $theme-colors: (
 // scss-docs-end theme-colors-map
 
 // scss-docs-start sass-light-mode-vars
-$primary-text:            $purple-600;
+$primary-text:            $blue-600;
 $secondary-text:          $gray-600;
 $success-text:            $green-600;
 $info-text:               $cyan-700;

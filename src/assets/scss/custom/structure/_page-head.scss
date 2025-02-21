@@ -4,9 +4,7 @@
 
 .page-title-box {
     .page-title {
-        font-size: 1.25rem;
         margin: 0;
-        line-height: 75px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -19,6 +17,43 @@
 
     .breadcrumb {
         padding-top: 8px;
+    }
+    .dashboard-topbar {
+        margin-bottom: 20px;
+    }
+
+    .greeting {
+        font-weight: 500;
+        color: #333;
+    }
+
+    .username {
+        color: #2d78f4; /* Blue color for the name */
+        font-weight: 600;
+    }
+
+    .organization {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 5px;
+        color: #002856;
+    }
+
+    .btn-purple {
+        background-color: $purple;
+    }
+    .organization-link {
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .organization-link:hover {
+        text-decoration: underline;
+    }
+
+    .subtitle {
+        color: #555;
     }
 }
 

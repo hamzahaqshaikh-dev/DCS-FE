@@ -57,9 +57,9 @@ const NotificationDropdown = (props: NotificationDropdownProps) => {
         className={classNames("nav-link waves-effect waves-light arrow-none notification-list", { show: dropdownOpen, })}
       >
         <i className="fe-bell noti-icon font-22"></i>
-        <span className="badge bg-danger rounded-circle noti-icon-badge">
+        {/* <span className="badge bg-danger rounded-circle noti-icon-badge">
           9
-        </span>
+        </span> */}
       </Dropdown.Toggle>
       <Dropdown.Menu className="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg py-0">
         <div onClick={toggleDropdown}>

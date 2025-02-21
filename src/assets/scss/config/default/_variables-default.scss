@@ -58,7 +58,7 @@ $grays: (
 // scss-docs-start color-variables
 $blue:       #3A8DDE;
 $indigo:     #675aa9;
-$purple:     #6658dd;
+$purple:     #612166;
 $pink:       #f672a7;
 $red:        #f1556c;
 $orange:     #fd7e14;
@@ -66,6 +66,7 @@ $yellow:     #f7b84b;
 $green:      #1abc9c;
 $teal:       #02a8b5;
 $cyan:       #43bfe5;
+$lightGrey:  #F6F6F6;
 // scss-docs-end color-variables
 
 // scss-docs-start colors-map
@@ -318,7 +319,7 @@ $cyans: (
 // fusv-enable
 
 // scss-docs-start theme-color-variables
-$primary:       $blue;
+$primary:       $purple;
 $secondary:     $gray-700;
 $success:       $green;
 $info:          $cyan;
@@ -1526,6 +1527,24 @@ $progress-bar-color:                $white;
 $progress-bar-bg:                   $primary;
 $progress-bar-animation-timing:     1s linear infinite;
 $progress-bar-transition:           width .6s ease;
+
+
+
+//
+// Progress bars
+//
+// scss-docs-start progress-variables
+$footerBackground:                  $lightGrey;
+$progress-font-size:                $font-size-base * .75;
+$progress-bg:                       var(--#{$prefix}light);
+$progress-border-radius:            var(--#{$prefix}border-radius);
+$progress-box-shadow:               var(--#{$prefix}box-shadow-inset);
+$progress-bar-color:                $white;
+$progress-bar-bg:                   $primary;
+$progress-bar-animation-timing:     1s linear infinite;
+$progress-bar-transition:           width .6s ease;
+
+
 // scss-docs-end progress-variables
 
 //

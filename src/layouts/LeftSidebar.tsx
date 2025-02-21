@@ -1,22 +1,23 @@
-import React, {useEffect, useRef, useState} from "react";
-import {Dropdown} from "react-bootstrap";
-import {Link} from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { Dropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import SimpleBar from "simplebar-react";
 
-import {getMenuItems} from "@/helpers/menu";
+import { getMenuItems } from "@/helpers/menu";
 
 // components
 import AppMenu from "./Menu";
 
-import profileImg from "@/assets/images/users/user-1.jpg";
-import logoSm from "@/assets/images/logo-sm.png";
-import logoDark from "@/assets/images/logo-dark.png";
-import logoDark2 from "@/assets/images/logo-dark-2.png";
+import profileImg from "@/assets/dsc-images/sidebar-profile-image.png";
+// import logoSm from "@/assets/images/logo-sm.png";
+// import logoDark from "@/assets/images/logo-dark.png";
+import logoDark from "@/assets/dsc-images/sidebar-logo.png";
+import logoSm from "@/assets/dsc-images/footer-logo.png";
 import logoLight from "@/assets/images/logo-light.png";
 import logoLight2 from "@/assets/images/logo-light-2.png";
 
-import {FiUser, FiSettings, FiLock, FiLogOut} from "react-icons/fi"
-import {useLayoutContext} from "@/context/useLayoutContext.tsx";
+import { FiUser, FiSettings, FiLock, FiLogOut } from "react-icons/fi"
+import { useLayoutContext } from "@/context/useLayoutContext";
 
 /* user box */
 const UserBox = () => {
@@ -54,23 +55,24 @@ const UserBox = () => {
     };
 
     return (
-        <div className="user-box text-center">
+        <div className="user-box text-center d-flex justify-content-start mt-5">
             <img
                 src={profileImg}
                 alt=""
                 title="Mat Helme"
                 className="rounded-circle avatar-md"
             />
-            <Dropdown show={dropdownOpen} onToggle={toggleDropdown}>
-                <Dropdown.Toggle
-                    id="dropdown-notification"
-                    as="a"
-                    onClick={toggleDropdown}
-                    className="cursor-pointer text-dark h5 mt-2 mb-1 d-block"
-                >
-                    Geneva Kennedy
-                </Dropdown.Toggle>
-                <Dropdown.Menu className="user-pro-dropdown">
+            <div className="flex-grow-1 d-flex flex-column justify-content-center ms-2">
+                <Dropdown show={dropdownOpen} onToggle={toggleDropdown}>
+                    <Dropdown.Toggle
+                        id="dropdown-notification"
+                        as="a"
+                        onClick={toggleDropdown}
+                        className="cursor-pointer text-white h5 mt-0 mb-0 d-block text-start text-uppercase"
+                    >
+                        Ali khalid
+                    </Dropdown.Toggle>
+                    {/* <Dropdown.Menu className="user-pro-dropdown">
                     <div onClick={toggleDropdown}>
                         {(ProfileMenus || []).map((item, index) => {
                             return (
@@ -85,9 +87,10 @@ const UserBox = () => {
                             );
                         })}
                     </div>
-                </Dropdown.Menu>
-            </Dropdown>
-            <p className="text-muted">Admin Head</p>
+                </Dropdown.Menu> */}
+                </Dropdown>
+                <p className="text-muted text-start m-0 light-green">Partner</p>
+            </div>
         </div>
     );
 };
@@ -96,13 +99,13 @@ const UserBox = () => {
 const SideBarContent = () => {
     return (
         <>
-            <UserBox/>
 
             {/* <div id="sidebar-menu"> */}
-            <AppMenu menuItems={getMenuItems()}/>
+            <AppMenu menuItems={getMenuItems()} />
             {/* </div> */}
 
-            <div className="clearfix"/>
+            <UserBox />
+            <div className="clearfix" />
         </>
     );
 };
@@ -112,10 +115,10 @@ interface LeftSidebarProps {
     hideLogo?: boolean;
 }
 
-const LeftSidebar = ({isCondensed, hideLogo}: LeftSidebarProps) => {
+const LeftSidebar = ({ isCondensed, hideLogo }: LeftSidebarProps) => {
     const menuNodeRef: any = useRef(null);
 
-    const {orientation} = useLayoutContext();
+    const { orientation } = useLayoutContext();
 
     /**
      * Handle the click anywhere in doc
@@ -147,46 +150,46 @@ const LeftSidebar = ({isCondensed, hideLogo}: LeftSidebarProps) => {
                 {!hideLogo && (
                     <div className="logo-box">
                         <Link to="/" className="logo logo-dark text-center">
-              <span className="logo-sm">
-                <img src={logoSm} alt="" height="22"/>
-              </span>
+                            <span className="logo-sm">
+                                <img src={logoSm} alt="" height="22" />
+                            </span>
                             <span className="logo-lg">
-                <img
-                    src={
-                        orientation === 'two-column'
-                            ? logoDark2
-                            : logoDark
-                    }
-                    alt=""
-                    height="20"
-                />
-              </span>
+                                <img
+                                    src={
+                                        orientation === 'two-column'
+                                            ? logoDark2
+                                            : logoDark
+                                    }
+                                    alt=""
+                                    height="80"
+                                />
+                            </span>
                         </Link>
                         <Link to="/" className="logo logo-light text-center">
-              <span className="logo-sm">
-                <img src={logoSm} alt="" height="22"/>
-              </span>
+                            <span className="logo-sm">
+                                <img src={logoSm} alt="" height="22" />
+                            </span>
                             <span className="logo-lg">
-                <img
-                    src={
-                        orientation === 'two-column'
-                            ? logoLight2
-                            : logoLight
-                    }
-                    alt=""
-                    height="20"
-                />
-              </span>
+                                <img
+                                    src={
+                                        orientation === 'two-column'
+                                            ? logoLight2
+                                            : logoLight
+                                    }
+                                    alt=""
+                                    height="20"
+                                />
+                            </span>
                         </Link>
                     </div>
                 )}
 
                 {!isCondensed && (
                     <SimpleBar className="scrollbar show h-100" scrollbarMaxSize={320}>
-                        <SideBarContent/>
+                        <SideBarContent />
                     </SimpleBar>
                 )}
-                {isCondensed && <SideBarContent/>}
+                {isCondensed && <SideBarContent />}
             </div>
         </React.Fragment>
     );

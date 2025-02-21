@@ -3,3 +3,30 @@
 // Main styles
 @import "./config/default/bootstrap.scss";
 @import "./config/default/app.scss";
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white url("/src/assets/images/bg-pattern.png") center;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; // Ensures it's above everything
+
+    .loader-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .loader-logo {
+        width: 150px; // Adjust logo size
+        margin-bottom: 50px;
+    }
+}

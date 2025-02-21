@@ -1,10 +1,10 @@
-import React, {Suspense, useEffect, useState} from "react";
-import {Container} from "react-bootstrap";
+import React, { Suspense, useEffect, useState } from "react";
+import { Container } from "react-bootstrap";
 
 // utils
-import {toggleDocumentAttribute} from "@/utils";
-import {useViewport} from "@/hooks/useViewPort";
-import {useLayoutContext} from "@/context/useLayoutContext.tsx";
+import { toggleDocumentAttribute } from "@/utils";
+import { useViewport } from "@/hooks/useViewPort";
+import { useLayoutContext } from "@/context/useLayoutContext";
 
 // code splitting and lazy loading
 const Topbar = React.lazy(() => import("./Topbar"));
@@ -18,9 +18,9 @@ interface VerticalLayoutProps {
     children?: any;
 }
 
-const VerticalLayout = ({children}: VerticalLayoutProps) => {
+const VerticalLayout = ({ children }: VerticalLayoutProps) => {
 
-    const {width} = useViewport();
+    const { width } = useViewport();
 
     const {
         topBar,
@@ -113,12 +113,12 @@ const VerticalLayout = ({children}: VerticalLayoutProps) => {
         <>
             <div id="wrapper">
                 <Suspense fallback={loading()}>
-                    <LeftSidebar isCondensed={isCondensed} hideLogo={false}/>
+                    <LeftSidebar isCondensed={isCondensed} hideLogo={false} />
                 </Suspense>
 
                 <div className="content-page">
                     <Suspense fallback={loading()}>
-                        <Topbar openLeftMenuCallBack={openMenu}/>
+                        <Topbar openLeftMenuCallBack={openMenu} />
                     </Suspense>
 
                     <div className="content">
@@ -126,15 +126,15 @@ const VerticalLayout = ({children}: VerticalLayoutProps) => {
                             <Suspense fallback={loading()}>{children}</Suspense>
                         </Container>
                     </div>
-
-                    <Suspense fallback={loading()}>
-                        <Footer/>
-                    </Suspense>
                 </div>
+
+                <Suspense fallback={loading()}>
+                    <Footer />
+                </Suspense>
             </div>
             {themeCustomizer.open && (
                 <Suspense fallback={loading()}>
-                    <RightSidebar/>
+                    <RightSidebar />
                 </Suspense>
             )}
         </>

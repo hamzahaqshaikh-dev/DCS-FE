@@ -32,7 +32,7 @@ const useLogin = () => {
     const redirectUser = () => {
         const redirectLink = searchParams.get('redirectTo')
         if (redirectLink) navigate(redirectLink)
-        else navigate('/dashboard-1')
+        else navigate('/organization-dashboard')
     }
 
     const login = handleSubmit(async (values: LoginFormFields) => {
