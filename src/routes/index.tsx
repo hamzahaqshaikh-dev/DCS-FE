@@ -32,12 +32,11 @@ const Landing = React.lazy(() => import("../pages/landing/"));
 
 // dashboard
 const Dashboard1 = React.lazy(() => import("../pages/dashboard/Dashboard1/"));
-const Dashboard2 = React.lazy(() => import("../pages/dashboard/Dashboard2/"));
-const Dashboard3 = React.lazy(() => import("../pages/dashboard/Dashboard3/"));
-const Dashboard4 = React.lazy(() => import("../pages/dashboard/Dashboard4/"));
 
 // apps
-const CalendarApp = React.lazy(() => import("../pages/apps/Calendar/"));
+const EventFeasibilityInfo = React.lazy(() => import("../pages/apps/events/event-feasibility-info"));
+const EventFeasibilityInfoList = React.lazy(() => import("../pages/apps/events/event-feasibility-info-list"));
+const EventFormOne = React.lazy(() => import("../pages/apps/events/event-form-1"));
 const Projects = React.lazy(() => import("../pages/apps/Projects/"));
 const ProjectDetail = React.lazy(
     () => import("../pages/apps/Projects/Detail/")
@@ -228,34 +227,52 @@ const dashboardRoutes: RoutesProps = {
             element: <Dashboard1/>,
             route: PrivateRoute,
         },
-        {
-            path: "/dashboard-2",
-            name: "Dashboard 2",
-            element: <Dashboard2/>,
-            route: PrivateRoute,
-        },
-        {
-            path: "/dashboard-3",
-            name: "Dashboard 3",
-            element: <Dashboard3/>,
-            route: PrivateRoute,
-        },
-        {
-            path: "/dashboard-4",
-            name: "Dashboard 4",
-            element: <Dashboard4/>,
-            route: PrivateRoute,
-        },
+        // {
+        //     path: "/dashboard-2",
+        //     name: "Dashboard 2",
+        //     element: <Dashboard2/>,
+        //     route: PrivateRoute,
+        // },
+        // {
+        //     path: "/dashboard-3",
+        //     name: "Dashboard 3",
+        //     element: <Dashboard3/>,
+        //     route: PrivateRoute,
+        // },
+        // {
+        //     path: "/dashboard-4",
+        //     name: "Dashboard 4",
+        //     element: <Dashboard4/>,
+        //     route: PrivateRoute,
+        // },
     ],
 };
 
-const calendarAppRoutes: RoutesProps = {
-    path: "/apps/calendar",
-    name: "Calendar",
+const EventFeasibilityInfoRoute: RoutesProps = {
+    path: "/apps/event-feasibility-info",
+    name: "Event Feasibility Assessment application",
     route: PrivateRoute,
     roles: ["Admin"],
-    icon: "calendar",
-    element: <CalendarApp/>,
+    icon: "event assessment",
+    element: <EventFeasibilityInfo/>,
+    header: "Apps",
+};
+const EventFeasibilityInfoListRoute: RoutesProps = {
+    path: "/apps/event-feasibility-info-list",
+    name: "Event Feasibility Assessment Info",
+    route: PrivateRoute,
+    roles: ["Admin"],
+    icon: "event assessment info",
+    element: <EventFeasibilityInfoList/>,
+    header: "Apps",
+};
+const EventFormOneRoute: RoutesProps = {
+    path: "/apps/event-form",
+    name: "Event Form",
+    route: PrivateRoute,
+    roles: ["Admin"],
+    icon: "event form",
+    element: <EventFormOne />,
     header: "Apps",
 };
 
@@ -535,7 +552,9 @@ const fileAppRoutes = {
 };
 
 const appRoutes = [
-    calendarAppRoutes,
+    EventFeasibilityInfoRoute,
+    EventFeasibilityInfoListRoute,
+    EventFormOneRoute,
     chatAppRoutes,
     ecommerceAppRoutes,
     crmAppRoutes,

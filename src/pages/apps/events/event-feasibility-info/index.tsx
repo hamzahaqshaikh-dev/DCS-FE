@@ -1,92 +1,11 @@
-import React, { useEffect, useState } from "react";
 import { Row, Col, Card, Button } from "react-bootstrap";
 import "@fullcalendar/react";
-import { DateClickArg, Draggable } from "@fullcalendar/interaction";
-import { EventClickArg, EventInput } from "@fullcalendar/core";
-import classNames from "classnames";
 
 // components
-import PageTitle from "../../../components/PageTitle";
-
-import Calendar from "./Calendar";
-import AddEditEvent from "./AddEditEvent";
-
-// dummy data
-import { defaultEvents } from "./data";
-
-const SidePanel = () => {
-  // external events
-  const externalEvents = [
-    {
-      id: 1,
-      className: "bg-success",
-      title: "New Theme Release",
-    },
-    {
-      id: 2,
-      className: "bg-info",
-      title: "My Event",
-    },
-    {
-      id: 3,
-      className: "bg-warning",
-      title: "Meet manager",
-    },
-    {
-      id: 4,
-      className: "bg-danger",
-      title: "Create New theme",
-    },
-  ];
-
-  return (
-    <>
-      <div id="external-events">
-        <br />
-        <p className="text-muted">
-          Drag and drop your event or click in the calendar
-        </p>
-        {/* external events */}
-        {(externalEvents || []).map((event, index) => {
-          return (
-            <div
-              key={index}
-              className={classNames("external-event", event.className)}
-              title={event.title}
-              data-class={event.className}
-            >
-              <i className="mdi mdi-checkbox-blank-circle me-2 vertical-middle"></i>
-              {event.title}
-            </div>
-          );
-        })}
-      </div>
-
-      <div className="mt-5 d-none d-xl-block">
-        <h5 className="text-center">How It Works ?</h5>
-
-        <ul className="ps-3">
-          <li className="text-muted mb-3">
-            It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged.
-          </li>
-          <li className="text-muted mb-3">
-            Richard McClintock, a Latin professor at Hampden-Sydney College in
-            Virginia, looked up one of the more obscure Latin words,
-            consectetur, from a Lorem Ipsum passage.
-          </li>
-          <li className="text-muted mb-3">
-            It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged.
-          </li>
-        </ul>
-      </div>
-    </>
-  );
-};
+import PageTitle from "../../../../components/PageTitle";
+import { Link } from "react-router-dom";
 
 const CalendarApp = () => {
-
   return (
     <>
       <PageTitle title="Event Feasibility Assessment application" />
@@ -139,32 +58,29 @@ const CalendarApp = () => {
                   <h3 className="text-black mt-3">Documents Needed</h3>
                   <Row>
                     <Col xs={6}>
-                      <p><p className="mb-0">📌</p>Registration Certificate</p>
-                      <p><p className="mb-0">📌</p>Event Proposal Document</p>
-                      <p><p className="mb-0">📌</p>Previous Event Reports (if applicable)</p>
+                      <p><span className="mb-0 d-block">📌</span>Registration Certificate</p>
+                      <p><span className="mb-0 d-block">📌</span>Event Proposal Document</p>
+                      <p><span className="mb-0 d-block">📌</span>Previous Event Reports (if applicable)</p>
                     </Col>
                     <Col xs={6}>
-                      <p><p className="mb-0">📌</p>Budget Breakdown & Funding Sources</p>
-                      <p><p className="mb-0">📌</p>Sponsorship Agreements</p>
+                      <p><span className="mb-0 d-block">📌</span>Budget Breakdown & Funding Sources</p>
+                      <p><span className="mb-0 d-block">📌</span>Sponsorship Agreements</p>
                     </Col>
                   </Row>
 
                   {/* Horizontal Line */}
                   <hr className="my-3" />
 
-                  <Button className="btn btn-lg font-16 btn-primary w-100">
+                  <Link to="/apps/event-feasibility-info-list" className="btn btn-lg font-16 btn-primary w-100">
                     Start Application
-                  </Button>
+                  </Link>
                   <hr className="my-3" />
                 </Col>
-
-
               </Row>
             </Card.Body>
           </Card>
         </Col>
       </Row>
-
     </>
   );
 };

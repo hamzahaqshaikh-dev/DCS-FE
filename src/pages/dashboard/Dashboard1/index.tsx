@@ -86,7 +86,7 @@ const Dashboard1 = () => {
                 You haven’t submitted any event yet. To move forward with your hosting request,
                 please fill in the event’s feasibility assessment form.
               </p>
-              <Button className="btn btn-primary border-0">Add New Event</Button>
+              <Link to="/apps/event-feasibility-info" className="btn btn-primary border-0">Add New Event</Link>
             </div>
           </Col>
         </Row>

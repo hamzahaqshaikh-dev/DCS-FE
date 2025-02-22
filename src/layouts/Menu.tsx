@@ -217,7 +217,7 @@ const AppMenu = ({ menuItems }: AppMenuProps) => {
             <React.Fragment key={idx}>
               {item.isTitle ? (
                 <li
-                  className={classNames("menu-title", {
+                  className={classNames("menu-title color-green", {
                     "mt-2": idx !== 0,
                   })}
                 >

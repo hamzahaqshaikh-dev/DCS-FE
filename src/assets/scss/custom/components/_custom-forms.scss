@@ -61,3 +61,70 @@
         }
     }
 }
+
+.form-check-inline {
+    input.form-check-input {
+        display: none; /* Hide default radio */
+    }
+
+    label.form-check-label {
+        position: relative;
+        padding-left: 30px;
+        cursor: pointer;
+        font-size: 16px;
+        color: #333;
+    }
+
+    label.form-check-label::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid #5c2566; /* Outer circle color */
+        background-color: white;
+    }
+
+    input.form-check-input:checked + label::before {
+        background-color: white;
+        border: 1px solid #5c2566;
+    }
+
+    input.form-check-input:checked + label::after {
+        content: "";
+        position: absolute;
+        left: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #5c2566; /* Inner filled dot */
+    }
+}
+
+/* Remove default button background and border */
+.accordion-item {
+    border: none !important;
+}
+.accordion-button {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+}
+
+/* Remove the default chevron icon added by Bootstrap */
+.accordion-button::after {
+    display: none !important;
+}
+.accordion-button[aria-expanded=true] i {
+    transform: rotate(90deg);
+}
