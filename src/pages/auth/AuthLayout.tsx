@@ -41,7 +41,7 @@ const AuthLayout = ({
       <div className="account-pages">
         <div className="container-fluid">
           <Row className="justify-content-between vh-100">   {/* Left Section */}
-            <Col md={6} xl={7} className="left-section p-3 m-p-5 d-flex flex-column justify-content-between text-center text-md-start align-items-center align-items-md-start">
+            <Col md={6} xl={7} className="left-section p-3 p-lg-5 d-flex flex-column justify-content-between text-center text-md-start align-items-center align-items-md-start">
               <img src={LogoDark} alt="Logo" className="mb-0 md-mb-4" width={200} />
               <div>
                 <h1 className="welcome-heading">
