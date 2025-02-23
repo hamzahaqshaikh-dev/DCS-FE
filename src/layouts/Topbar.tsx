@@ -285,7 +285,7 @@ const Topbar = ({
                         </button>
                         <div className="d-flex align-items-center">
                             <h4 className="welcome-heading">
-                                SC360&deg; <span className="highlighted-text">DCS</span>
+                                SC360&deg; <span className="highlighted-text fw-light">DCS</span>
                             </h4>
                             <span className="Pipe"></span>
                             <h6 className="welcome-heading text-uppercase">

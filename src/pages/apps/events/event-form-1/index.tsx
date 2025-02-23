@@ -96,6 +96,16 @@ const EventFormOne = () => {
   const onSubmit = (data) => {
     console.log("Final Submitted Data:", data);
     alert("Form submitted successfully!");
+  
+    // Example: Send data to API
+    fetch("https://your-api.com/submit-event", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((result) => console.log("Submission Result:", result))
+      .catch((error) => console.error("Error submitting form:", error));
   };
 
   return (
@@ -104,7 +114,7 @@ const EventFormOne = () => {
         <StepOne control={control} errors={errors} saveDraft={saveDraft} handleValidation={handleValidation} />
         <StepTwo control={control} errors={errors} saveDraft={saveDraft} handleValidation={handleValidation} />
         <StepThree control={control} errors={errors} saveDraft={saveDraft} handleValidation={handleValidation} />
-        <StepFour control={control} errors={errors} saveDraft={saveDraft} handleValidation={handleSubmit(onSubmit)} />
+        <StepFour control={control} errors={errors} saveDraft={saveDraft} handleValidation={handleValidation} />
       </StepWizard>
     </div>
   );

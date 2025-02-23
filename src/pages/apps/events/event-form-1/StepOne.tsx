@@ -24,7 +24,7 @@ const StepOne = ({ control, errors, saveDraft, handleValidation }) => {
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">1</h3>
                                         <div>
                                             <h4 className="mb-1 mt-0">Overview</h4>
-                                            <small className="text-black fs-5">
+                                            <small className="text-black fs-5 fw-light">
                                                 Please Complete the Event Details
                                             </small>
                                         </div>
@@ -109,7 +109,7 @@ const StepOne = ({ control, errors, saveDraft, handleValidation }) => {
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">2</h3>
                                         <div>
                                             <h4 className="mb-1 mt-0">Bidding Landscape</h4>
-                                            <small className="text-black fs-5">
+                                            <small className="text-black fs-5 fw-light">
                                                 Lorem ipsum dolor sit amet consectetur. Id nisl ut non
                                             </small>
                                         </div>
@@ -151,7 +151,7 @@ const StepOne = ({ control, errors, saveDraft, handleValidation }) => {
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">3</h3>
                                         <div>
                                             <h4 className="mb-1 mt-0">Stakeholders</h4>
-                                            <small className="text-black fs-5">
+                                            <small className="text-black fs-5 fw-light">
                                                 Lorem ipsum dolor sit amet consectetur. Id nisl ut non
                                             </small>
                                         </div>
@@ -183,7 +183,7 @@ const StepOne = ({ control, errors, saveDraft, handleValidation }) => {
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">4</h3>
                                         <div>
                                             <h4 className="mb-1 mt-0">Infrastructure</h4>
-                                            <small className="text-black fs-5">
+                                            <small className="text-black fs-5 fw-light">
                                                 Lorem ipsum dolor sit amet consectetur. Id nisl ut non
                                             </small>
                                         </div>
@@ -212,7 +212,7 @@ const StepOne = ({ control, errors, saveDraft, handleValidation }) => {
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">5</h3>
                                         <div>
                                             <h4 className="mb-1 mt-0">Budget, profit & loss (QAR) (projected)</h4>
-                                            <small className="text-black fs-5">
+                                            <small className="text-black fs-5 fw-light">
                                                 Lorem ipsum dolor sit amet consectetur. Id nisl ut non
                                             </small>
                                         </div>
@@ -247,7 +247,7 @@ const StepOne = ({ control, errors, saveDraft, handleValidation }) => {
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">6</h3>
                                         <div>
                                             <h4 className="mb-1 mt-0">Impact projection data</h4>
-                                            <small className="text-black fs-5">
+                                            <small className="text-black fs-5 fw-light">
                                                 Lorem ipsum dolor sit amet consectetur. Id nisl ut non
                                             </small>
                                         </div>

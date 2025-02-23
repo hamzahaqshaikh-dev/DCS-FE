@@ -24,7 +24,7 @@ const StepFour = ({ control, errors, saveDraft, handleValidation }) => {
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">✱</h3>
                                         <div>
                                             <h4 className="mb-1 mt-0">Note</h4>
-                                            <small className="text-black fs-5">
+                                            <small className="text-black fs-5 fw-light">
                                                 Please use the following file name structure:
                                                 Event Owner_Event Name [Year of Event]_Name of Document Please write the name of the attached file in the relevant line of your completed RFI
                                             </small>

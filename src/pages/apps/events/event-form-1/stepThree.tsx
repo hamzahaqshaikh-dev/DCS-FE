@@ -24,7 +24,7 @@ const StepThree = ({ control, errors, saveDraft, handleValidation }) => {
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">1</h3>
                                         <div>
                                             <h4 className="mb-1 mt-0">Economic impact projection data</h4>
-                                            <small className="text-black fs-5">
+                                            <small className="text-black fs-5 fw-light">
                                                 Lorem ipsum dolor sit amet consectetur. Id nisl ut non
                                             </small>
                                         </div>
@@ -74,7 +74,7 @@ const StepThree = ({ control, errors, saveDraft, handleValidation }) => {
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">2</h3>
                                         <div>
                                             <h4 className="mb-1 mt-0">Organizer spend (Projected)</h4>
-                                            <small className="text-black fs-5">
+                                            <small className="text-black fs-5 fw-light">
                                                 Lorem ipsum dolor sit amet consectetur. Id nisl ut non
                                             </small>
                                         </div>
@@ -114,7 +114,7 @@ const StepThree = ({ control, errors, saveDraft, handleValidation }) => {
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">3</h3>
                                         <div>
                                             <h4 className="mb-1 mt-0">Event costs (QAR) (projected)</h4>
-                                            <small className="text-black fs-5">
+                                            <small className="text-black fs-5 fw-light">
                                                 Lorem ipsum dolor sit amet consectetur. Id nisl ut non
                                             </small>
                                         </div>
@@ -204,7 +204,7 @@ const StepThree = ({ control, errors, saveDraft, handleValidation }) => {
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">4</h3>
                                         <div>
                                             <h4 className="mb-1 mt-0">Destination promotion impact</h4>
-                                            <small className="text-black fs-5">
+                                            <small className="text-black fs-5 fw-light">
                                                 Lorem ipsum dolor sit amet consectetur. Id nisl ut non
                                             </small>
                                         </div>
@@ -274,7 +274,7 @@ const StepThree = ({ control, errors, saveDraft, handleValidation }) => {
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">5</h3>
                                         <div>
                                             <h4 className="mb-1 mt-0">Social and other impact</h4>
-                                            <small className="text-black fs-5">
+                                            <small className="text-black fs-5 fw-light">
                                                 Lorem ipsum dolor sit amet consectetur. Id nisl ut non
                                             </small>
                                         </div>

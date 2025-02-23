@@ -24,7 +24,7 @@ const StepTwo = ({ control, errors, saveDraft, handleValidation }) => {
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">1</h3>
                                         <div>
                                             <h4 className="mb-1 mt-0">Budget Details</h4>
-                                            <small className="text-black fs-5">
+                                            <small className="text-black fs-5 fw-light">
                                                 Please Complete the Event Details
                                             </small>
                                         </div>
@@ -66,7 +66,7 @@ const StepTwo = ({ control, errors, saveDraft, handleValidation }) => {
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">2</h3>
                                         <div>
                                             <h4 className="mb-1 mt-0">Ticket / registration / participation fees details</h4>
-                                            <small className="text-black fs-5">
+                                            <small className="text-black fs-5 fw-light">
                                                 Lorem ipsum dolor sit amet consectetur. Id nisl ut non
                                             </small>
                                         </div>
@@ -118,7 +118,7 @@ const StepTwo = ({ control, errors, saveDraft, handleValidation }) => {
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">3</h3>
                                         <div>
                                             <h4 className="mb-1 mt-0">Event costs (QAR) (projected)</h4>
-                                            <small className="text-black fs-5">
+                                            <small className="text-black fs-5 fw-light">
                                                 Lorem ipsum dolor sit amet consectetur. Id nisl ut non
                                             </small>
                                         </div>
@@ -194,7 +194,7 @@ const StepTwo = ({ control, errors, saveDraft, handleValidation }) => {
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">4</h3>
                                         <div>
                                             <h4 className="mb-1 mt-0">Government support</h4>
-                                            <small className="text-black fs-5">
+                                            <small className="text-black fs-5 fw-light">
                                                 Lorem ipsum dolor sit amet consectetur. Id nisl ut non
                                             </small>
                                         </div>
@@ -220,7 +220,7 @@ const StepTwo = ({ control, errors, saveDraft, handleValidation }) => {
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">5</h3>
                                         <div>
                                             <h4 className="mb-1 mt-0">Event suppliers (projected)</h4>
-                                            <small className="text-black fs-5">
+                                            <small className="text-black fs-5 fw-light">
                                                 List the event suppliers planned to be used for the event, listing the projected value of their contracts and the FTE number of staff to be engaged to supply the services over the contracted period.
                                             </small>
                                         </div>
