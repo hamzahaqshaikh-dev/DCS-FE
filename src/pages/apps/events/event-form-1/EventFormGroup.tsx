@@ -15,7 +15,10 @@ const EventFormGroup = ({
     hideAddon = false,
     maxLength = undefined,
     suffix = '',
-    rows = 4
+    rows = 4,
+    addBtn = true,
+    uploadTitle = "",
+    previewTitle = ""
 }) => {
     const [documents, setDocuments] = useState([{ id: Date.now(), file: null }]);
 
@@ -39,7 +42,7 @@ const EventFormGroup = ({
     };
     return (
         <Form.Group className="mb-3">
-            <Form.Label className="text-black">{label}</Form.Label>
+            {uploadTitle === '' && <Form.Label className="text-black">{label}</Form.Label>}
             <Controller
                 name={name}
                 control={control}
@@ -126,48 +129,54 @@ const EventFormGroup = ({
                             return (
                                 <div>
                                     {documents.map((doc, index) => (
-                                        <div key={doc.id} className="d-flex gap-3 align-items-start mb-3">
-                                            <div
-                                                className="border p-3 py-5 d-flex w-50 justify-content-center align-items-center"
-                                                style={{ borderRadius: "4px", cursor: "pointer", alignSelf: "normal" }}
-                                                onClick={() => document.getElementById(`file-input-${doc.id}`).click()}
-                                            >
-                                                <input
-                                                    type="file"
-                                                    id={`file-input-${doc.id}`}
-                                                    className="d-none"
-                                                    onChange={(event) => handleFileChange(event, doc.id, field.onChange)}
-                                                />
-                                                <span className="text-muted">Drag here or click to upload a file</span>
+                                        <div key={doc.id} className="d-column d-md-flex gap-3 align-items-start mb-3">
+                                            <div className="w-100 w-md-50 mb-3 mb-md-0">
+                                                {uploadTitle !== '' && <Form.Label className="text-black">{uploadTitle}</Form.Label>}
+                                                <div
+                                                    className="border p-3 py-5 d-flex w-100 justify-content-center align-items-center"
+                                                    style={{ borderRadius: "4px", cursor: "pointer", alignSelf: "normal" }}
+                                                    onClick={() => document.getElementById(`file-input-${doc.id}`).click()}
+                                                >
+                                                    <input
+                                                        type="file"
+                                                        id={`file-input-${doc.id}`}
+                                                        className="d-none"
+                                                        onChange={(event) => handleFileChange(event, doc.id, field.onChange)}
+                                                    />
+                                                    <span className="text-muted">Drag here or click to upload a file</span>
+                                                </div>
                                             </div>
 
                                             {/* Document Preview */}
-                                            <div
-                                                className="border p-3 py-5 bg-light d-flex w-50 justify-content-center align-items-center"
-                                                style={{ borderRadius: "4px", alignSelf: "normal" }}
-                                            >
-                                                {doc.file ? (
-                                                    <img
-                                                        src={URL.createObjectURL(doc.file)}
-                                                        alt="Preview"
-                                                        style={{ maxHeight: "100%", maxWidth: "100%" }}
-                                                    />
-                                                ) : (
-                                                    <span className="text-muted">Preview of document</span>
-                                                )}
+                                            <div className="w-100 w-md-50">
+                                                {previewTitle !== '' && <Form.Label className="text-black">{previewTitle}</Form.Label>}
+                                                <div
+                                                    className="border p-3 py-5 bg-light d-flex justify-content-center align-items-center"
+                                                    style={{ borderRadius: "4px", alignSelf: "normal" }}
+                                                >
+                                                    {doc.file ? (
+                                                        <img
+                                                            src={URL.createObjectURL(doc.file)}
+                                                            alt="Preview"
+                                                            style={{ maxHeight: "100%", maxWidth: "100%" }}
+                                                        />
+                                                    ) : (
+                                                        <span className="text-muted">Preview of document</span>
+                                                    )}
+                                                </div>
                                             </div>
                                         </div>
                                     ))}
 
                                     {/* Add More Button */}
-                                    <Button
+                                    {addBtn && <Button
                                         variant="outline-primary"
                                         onClick={addNewDocumentField}
                                         className="mt-2 d-flex justify-content-center align-items-center"
                                         style={{ width: "40px", height: "40px", borderRadius: "4px" }}
                                     >
                                         +
-                                    </Button>
+                                    </Button>}
                                 </div>
                             );
 

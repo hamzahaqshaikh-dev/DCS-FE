@@ -94,7 +94,7 @@ const EventFeasibilityInfoList = () => {
           </div>
           <hr className="my-3" />
           <div className="d-flex justify-content-between mt-3">
-            <Button variant="outline-primary" className="w-50 me-2 text-uppercase">
+            <Button variant="outline-primary" className="w-50 me-2 text-uppercase fw-bold">
               Save as a Draft
             </Button>
               <Link to="/apps/event-form" className="w-50 btn btn-primary border-0">Next</Link>

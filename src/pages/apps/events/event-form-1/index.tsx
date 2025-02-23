@@ -6,6 +6,8 @@ import StepWizard from "react-step-wizard";
 import { Row, Col, Card, Button, Form } from "react-bootstrap";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
+import StepThree from "./stepThree";
+import StepFour from "./stepFour";
 
 // Validation Schema
 const validationSchema = yup.object().shape({
@@ -25,7 +27,7 @@ const validationSchema = yup.object().shape({
     .default(0), // Ensures it's recognized
   cadence: yup.string().required("Cadence is required"),
   scale: yup.string().required("Scale is required"),
-  "event-overview": yup
+  eventOverview: yup
     .string()
     .max(150, "Max length is 150 characters")
     .required("Event overview is required"),
@@ -33,18 +35,18 @@ const validationSchema = yup.object().shape({
     .string()
     .max(100, "Max length is 100 characters")
     .required("Purpose is required"),
-  "target-audience": yup
+  targetAudience: yup
     .string()
     .max(150, "Max length is 150 characters")
     .required("Target audience is required"),
-  "organizing-committee": yup
+  organizingCommittee: yup
     .string()
     .required("Please select if the event requires an organizing committee"),
-  "organizing-committee-details": yup
+  organizingCommitteeDetails: yup
     .string()
     .max(150, "Max length is 150 characters")
     .required("Target audience is required"),
-  "event-location": yup
+  eventLocation: yup
     .string()
     .max(150, "Max length is 150 characters")
     .required("Event location is required"),
@@ -91,11 +93,18 @@ const EventFormOne = () => {
     stepWizard.nextStep();
   });
 
+  const onSubmit = (data) => {
+    console.log("Final Submitted Data:", data);
+    alert("Form submitted successfully!");
+  };
+
   return (
     <div>
       <StepWizard instance={setStepWizard}>
-        <StepOne nextStep={() => stepWizard.nextStep()} control={control} errors={errors} saveDraft={saveDraft} handleValidation={handleValidation} />
-        <StepTwo nextStep={() => stepWizard.nextStep()} control={control} errors={errors} saveDraft={saveDraft} handleValidation={handleValidation} />
+        <StepOne control={control} errors={errors} saveDraft={saveDraft} handleValidation={handleValidation} />
+        <StepTwo control={control} errors={errors} saveDraft={saveDraft} handleValidation={handleValidation} />
+        <StepThree control={control} errors={errors} saveDraft={saveDraft} handleValidation={handleValidation} />
+        <StepFour control={control} errors={errors} saveDraft={saveDraft} handleValidation={handleSubmit(onSubmit)} />
       </StepWizard>
     </div>
   );

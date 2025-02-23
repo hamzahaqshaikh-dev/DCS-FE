@@ -7,7 +7,7 @@ import { Row, Col, Card, Button, Form, Accordion } from "react-bootstrap";
 import HyperDatepicker from "@/components/Datepicker";
 import EventFormGroup from "./EventFormGroup";
 
-const StepOne = ({ nextStep, control, errors, saveDraft, handleValidation }) => {
+const StepOne = ({ control, errors, saveDraft, handleValidation }) => {
     return (
         <Row>
             <Col lg={8}>
@@ -17,7 +17,7 @@ const StepOne = ({ nextStep, control, errors, saveDraft, handleValidation }) => 
                         <p className="fs-5 mb-0">Key Event Information</p>
                     </Card.Header>
                     <Card.Body>
-                        <Accordion defaultActiveKey="4">
+                        <Accordion defaultActiveKey="0">
                             <Accordion.Item eventKey="0" className="mb-3">
                                 <Accordion.Header className="d-flex align-items-center justify-content-between mt-0 bg-transparent">
                                     <div className="d-flex align-items-center">
@@ -67,17 +67,17 @@ const StepOne = ({ nextStep, control, errors, saveDraft, handleValidation }) => 
                                                 <EventFormGroup label="Scale" name="scale" control={control} errors={errors} placeholder="Mega (Olympics, World Cup and Expo)" as="input" />
                                             </Col>
                                             <Col lg={12}>
-                                                <EventFormGroup maxLength={150} label="Event Overview" name="event-overview" control={control} errors={errors} placeholder="Provide a high-level description of the event..." as="textarea" />
+                                                <EventFormGroup maxLength={150} label="Event Overview" name="eventOverview" control={control} errors={errors} placeholder="Provide a high-level description of the event..." as="textarea" />
                                             </Col>
 
                                             <Col lg={12}>
                                                 <EventFormGroup maxLength={100} label="Purpose" name="purpose" control={control} errors={errors} placeholder="What are the ambitions and objectives for the event?" as="textarea" />
                                             </Col>
                                             <Col lg={12}>
-                                                <EventFormGroup maxLength={150} label="Target audience" name="target-audience" control={control} errors={errors} placeholder="Describe the target audience and provide a reason why this is your target audience" as="textarea" />
+                                                <EventFormGroup maxLength={150} label="Target audience" name="targetAudience" control={control} errors={errors} placeholder="Describe the target audience and provide a reason why this is your target audience" as="textarea" />
                                             </Col>
                                             <Col lg={12}>
-                                                <EventFormGroup label="Does the event require an organizing committee?" name="organizing-committee" control={control} errors={errors} placeholder="" as="radio"
+                                                <EventFormGroup label="Does the event require an organizing committee?" name="organizingCommittee" control={control} errors={errors} placeholder="" as="radio"
                                                     options={[
                                                         { label: "No", value: "no" },
                                                         { label: "Yes", value: "yes" }
@@ -87,14 +87,14 @@ const StepOne = ({ nextStep, control, errors, saveDraft, handleValidation }) => 
                                             <Col lg={12}>
                                                 <EventFormGroup
                                                     label="Organizing Committee Details"
-                                                    name="organizing-committee-details"
+                                                    name="organizingCommitteeDetails"
                                                     control={control}
                                                     errors={errors}
                                                     placeholder="Provide details on who will be part of..."
                                                     maxLength={150}
                                                 />                                            </Col>
                                             <Col lg={12}>
-                                                <EventFormGroup maxLength={150} label="Event location" name="event-location" control={control} errors={errors} placeholder="Provide details on the location of the event and why the location is / was planned / chosen" as="textarea" />
+                                                <EventFormGroup maxLength={150} label="Event location" name="eventLocation" control={control} errors={errors} placeholder="Provide details on the location of the event and why the location is / was planned / chosen" as="textarea" />
                                             </Col>
                                             <Col lg={12}>
                                                 <EventFormGroup label="Status" name="status" control={control} errors={errors} placeholder="Provide details on the location of the event and why the location is / was planned / chosen" as="input" />
@@ -120,7 +120,7 @@ const StepOne = ({ nextStep, control, errors, saveDraft, handleValidation }) => 
                                     <Form>
                                         <Row>
                                             <Col lg={12}>
-                                                <EventFormGroup label="Was / is there a formal bidding process for the event?" name="formal-bidding" control={control} errors={errors} placeholder="" as="radio"
+                                                <EventFormGroup label="Was / is there a formal bidding process for the event?" name="formalBidding" control={control} errors={errors} placeholder="" as="radio"
                                                     options={[
                                                         { label: "No", value: "no" },
                                                         { label: "Yes", value: "yes" }
@@ -129,15 +129,17 @@ const StepOne = ({ nextStep, control, errors, saveDraft, handleValidation }) => 
                                             </Col>
                                             <Col lg={12}>
                                                 <EventFormGroup
-                                                    label="Supporting Documents"
-                                                    name="supporting-documents"
+                                                    label=""
+                                                    name="supportingDocuments"
                                                     control={control}
                                                     errors={errors}
                                                     as="file"
+                                                    uploadTitle="Documentation"
+                                                    previewTitle="Document Preview"
                                                 />
                                             </Col>
                                             <Col lg={12}>
-                                                <EventFormGroup maxLength={100} label="Briefly describe the bidding process" name="bidding-process" control={control} errors={errors} placeholder="Include phases, timeframes, documents required, fees required, etc." as="textarea" />
+                                                <EventFormGroup maxLength={100} label="Briefly describe the bidding process" name="biddingProcess" control={control} errors={errors} placeholder="Include phases, timeframes, documents required, fees required, etc." as="textarea" />
                                             </Col>
                                         </Row>
                                     </Form>
@@ -160,16 +162,16 @@ const StepOne = ({ nextStep, control, errors, saveDraft, handleValidation }) => 
                                     <Form>
                                         <Row>
                                             <Col lg={6}>
-                                                <EventFormGroup label="Qatar government event owner / oganizer" name="government-event-owner" control={control} errors={errors} placeholder="Name of government entity organizing the event" as="input" />
+                                                <EventFormGroup label="Qatar government event owner / oganizer" name="governmentEventOwner" control={control} errors={errors} placeholder="Name of government entity organizing the event" as="input" />
                                             </Col>
                                             <Col lg={6}>
-                                                <EventFormGroup label="Event rights holder" name="right-holder" control={control} errors={errors} placeholder="Name of the entity that owns the event rights / IP" as="input" />
+                                                <EventFormGroup label="Event rights holder" name="rightHolder" control={control} errors={errors} placeholder="Name of the entity that owns the event rights / IP" as="input" />
                                             </Col>
                                             <Col lg={6}>
-                                                <EventFormGroup label="Government stakeholders" name="government-stakeholders" control={control} errors={errors} placeholder="Ministries, authorities, other government entities involved." as="input" />
+                                                <EventFormGroup label="Government stakeholders" name="governmentStakeholders" control={control} errors={errors} placeholder="Ministries, authorities, other government entities involved." as="input" />
                                             </Col>
                                             <Col lg={6}>
-                                                <EventFormGroup label="All other stakeholders" name="all-other-stakeholders" control={control} errors={errors} placeholder="Mention any stakeholders to be involved in the event" as="input" />
+                                                <EventFormGroup label="All other stakeholders" name="allOtherStakeholders" control={control} errors={errors} placeholder="Mention any stakeholders to be involved in the event" as="input" />
                                             </Col>
                                         </Row>
                                     </Form>
@@ -192,13 +194,13 @@ const StepOne = ({ nextStep, control, errors, saveDraft, handleValidation }) => 
                                     <Form>
                                         <Row>
                                             <Col lg={6}>
-                                                <EventFormGroup label="Primary Venues" name="primary-venues" control={control} errors={errors} placeholder="Name the venues necessary to host the event" as="input" />
+                                                <EventFormGroup label="Primary Venues" name="primaryVenues" control={control} errors={errors} placeholder="Name the venues necessary to host the event" as="input" />
                                             </Col>
                                             <Col lg={6}>
-                                                <EventFormGroup label="Secondary / Ancillary Venue(s) *Optional" name="secondary-venues" control={control} errors={errors} placeholder="State the necessary secondary venues" as="input" />
+                                                <EventFormGroup label="Secondary / Ancillary Venue(s) *Optional" name="secondaryVenues" control={control} errors={errors} placeholder="State the necessary secondary venues" as="input" />
                                             </Col>
                                             <Col lg={12}>
-                                                <EventFormGroup maxLength={100} label="New permanent infrastructure / facilities / improvements" name="permanent-infrastructure" control={control} errors={errors} placeholder="Provide information on new permanent infrastructure / facilities / improvements required for this event to be staged" as="textarea" />
+                                                <EventFormGroup maxLength={100} label="New permanent infrastructure / facilities / improvements" name="permanentInfrastructure" control={control} errors={errors} placeholder="Provide information on new permanent infrastructure / facilities / improvements required for this event to be staged" as="textarea" />
                                             </Col>
                                         </Row>
                                     </Form>
@@ -221,19 +223,19 @@ const StepOne = ({ nextStep, control, errors, saveDraft, handleValidation }) => 
                                     <Form>
                                         <Row>
                                             <Col lg={4}>
-                                                <EventFormGroup suffix="QAR" label="Total Tickets" name="total-ticket" control={control} errors={errors} placeholder="" as="input" />
+                                                <EventFormGroup suffix="QAR" label="Total Tickets" name="totalTicket" control={control} errors={errors} placeholder="" as="input" />
                                             </Col>
                                             <Col lg={4}>
-                                                <EventFormGroup suffix="QAR" label="Total Revenues" name="total-revenue" control={control} errors={errors} placeholder="" as="input" />
+                                                <EventFormGroup suffix="QAR" label="Total Revenues" name="totalRevenue" control={control} errors={errors} placeholder="" as="input" />
                                             </Col>
                                             <Col lg={4}>
-                                                <EventFormGroup suffix="QAR" label="Total Costs" name="total-cost" control={control} errors={errors} placeholder="" as="input" />
+                                                <EventFormGroup suffix="QAR" label="Total Costs" name="totalCost" control={control} errors={errors} placeholder="" as="input" />
                                             </Col>
                                             <Col lg={12}>
-                                                <EventFormGroup label="New permanent infrastructure / facilities / improvements" name="total-revenue-right-holder" control={control} errors={errors} placeholder="Total revenues (excluding Government funding) minus Total costs and Revenue share to the rights holder and other entities" as="input" />
+                                                <EventFormGroup label="New permanent infrastructure / facilities / improvements" name="totalRevenueRightHolder" control={control} errors={errors} placeholder="Total revenues (excluding Government funding) minus Total costs and Revenue share to the rights holder and other entities" as="input" />
                                             </Col>
                                             <Col lg={12}>
-                                                <EventFormGroup label="Government funding required" name="government-funding" control={control} errors={errors} placeholder="Projected value of funding required to support the event cash-flows" as="input" />
+                                                <EventFormGroup label="Government funding required" name="governmentFunding" control={control} errors={errors} placeholder="Projected value of funding required to support the event cash-flows" as="input" />
                                             </Col>
                                         </Row>
                                     </Form>
@@ -256,16 +258,16 @@ const StepOne = ({ nextStep, control, errors, saveDraft, handleValidation }) => 
                                     <Form>
                                         <Row>
                                             <Col lg={6}>
-                                                <EventFormGroup label="Total projected number of unique attendees / client groups" name="number-of-unique-attendees" control={control} errors={errors} placeholder="E.g.athletes, officials, spectators, sponsors, guests..etc." as="input" />
+                                                <EventFormGroup label="Total projected number of unique attendees / client groups" name="numberofUniqueAttendees" control={control} errors={errors} placeholder="E.g.athletes, officials, spectators, sponsors, guests..etc." as="input" />
                                             </Col>
                                             <Col lg={6}>
-                                                <EventFormGroup label="Estimated % of international visitors" name="estimated-visitors" control={control} errors={errors} placeholder="" as="input" />
+                                                <EventFormGroup label="Estimated % of international visitors" name="estimatedVisitors" control={control} errors={errors} placeholder="" as="input" />
                                             </Col>
                                             <Col lg={12}>
-                                                <EventFormGroup label="Projected Total Economic Impact (QAR)" name="total-economic-impact" control={control} errors={errors} placeholder="The economic activity stimulated by: organisers, visitors.. rtc." as="input" />
+                                                <EventFormGroup label="Projected Total Economic Impact (QAR)" name="totalEconomicImpact" control={control} errors={errors} placeholder="The economic activity stimulated by: organisers, visitors.. rtc." as="input" />
                                             </Col>
                                             <Col lg={12}>
-                                                <EventFormGroup label="Spectators / participants / attendees spend (QAR) in host economy" name="spectators-spend" control={control} errors={errors} placeholder="(included in Projected Total Economic Impact)" as="input" />
+                                                <EventFormGroup label="Spectators / participants / attendees spend (QAR) in host economy" name="spectatorsSpend" control={control} errors={errors} placeholder="(included in Projected Total Economic Impact)" as="input" />
                                             </Col>
                                         </Row>
                                     </Form>
@@ -319,7 +321,7 @@ const StepOne = ({ nextStep, control, errors, saveDraft, handleValidation }) => 
                 </div>
                 <hr className="my-3" />
                 <div className="d-flex justify-content-between mt-3">
-                    <Button variant="outline-primary" className="w-50 me-2 text-uppercase" onClick={saveDraft}>
+                    <Button variant="outline-primary" className="w-50 me-2 text-uppercase fw-bold" onClick={saveDraft}>
                         Save as a Draft
                     </Button>
                     <Button variant="primary" className="w-50 btn btn-primary border-0" onClick={handleValidation}>

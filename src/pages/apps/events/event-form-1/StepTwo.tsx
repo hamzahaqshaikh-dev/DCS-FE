@@ -7,17 +7,17 @@ import { Row, Col, Card, Button, Form, Accordion } from "react-bootstrap";
 import HyperDatepicker from "@/components/Datepicker";
 import EventFormGroup from "./EventFormGroup";
 
-const StepTwo = ({ nextStep, control, errors, saveDraft, handleValidation }) => {
+const StepTwo = ({ control, errors, saveDraft, handleValidation }) => {
     return (
         <Row>
             <Col lg={8}>
                 <Card className="event-card">
                     <Card.Header className="event-header bg-darkBlueShaded text-white pt-3 pb-3 px-4">
-                        <h3 className="mb-1 text-white">EVENT FEASIBILITY ASSESSMENT</h3>
-                        <p className="fs-5 mb-0">Key Event Information</p>
+                        <h3 className="mb-1 text-white">Event Budget Details</h3>
+                        <p className="fs-5 mb-0">Event Feasibility Assessment</p>
                     </Card.Header>
                     <Card.Body>
-                        <Accordion defaultActiveKey="2">
+                        <Accordion defaultActiveKey="0">
                             <Accordion.Item eventKey="0" className="mb-3">
                                 <Accordion.Header className="d-flex align-items-center justify-content-between mt-0 bg-transparent">
                                     <div className="d-flex align-items-center">
@@ -35,7 +35,7 @@ const StepTwo = ({ nextStep, control, errors, saveDraft, handleValidation }) => 
                                     <Form>
                                         <Row>
                                             <Col lg={12}>
-                                                <EventFormGroup label="Has an event budget been completed?" name="has-budget-completed" control={control} errors={errors} placeholder="" as="radio"
+                                                <EventFormGroup label="Has an event budget been completed?" name="hasBudgetCompleted" control={control} errors={errors} placeholder="" as="radio"
                                                     options={[
                                                         { label: "No", value: "no" },
                                                         { label: "Yes", value: "yes" }
@@ -43,15 +43,17 @@ const StepTwo = ({ nextStep, control, errors, saveDraft, handleValidation }) => 
                                                 />
                                             </Col>
                                             <Col lg={12}>
-                                                <EventFormGroup rows={6} label="Budget details" name="budget-details" control={control} errors={errors} placeholder="Attach details of required budget, allocated budget and budget enhancements" as="textarea" />
+                                                <EventFormGroup rows={6} label="Budget details" name="budgetDetails" control={control} errors={errors} placeholder="Attach details of required budget, allocated budget and budget enhancements" as="textarea" />
                                             </Col>
                                             <Col lg={12}>
                                                 <EventFormGroup
-                                                    label="Attachment (1)"
-                                                    name="attachment-1"
+                                                    label=""
+                                                    name="attachment-1-1"
                                                     control={control}
                                                     errors={errors}
                                                     as="file"
+                                                    uploadTitle="Attachment (1)"
+                                                    previewTitle="Attachment (1) Preview"
                                                 />
                                             </Col>
                                         </Row>
@@ -296,7 +298,7 @@ const StepTwo = ({ nextStep, control, errors, saveDraft, handleValidation }) => 
                 </div>
                 <hr className="my-3" />
                 <div className="d-flex justify-content-between mt-3">
-                    <Button variant="outline-primary" className="w-50 me-2 text-uppercase" onClick={saveDraft}>
+                    <Button variant="outline-primary" className="w-50 me-2 text-uppercase fw-bold" onClick={saveDraft}>
                         Save as a Draft
                     </Button>
                     <Button variant="primary" className="w-50 btn btn-primary border-0" onClick={handleValidation}>
