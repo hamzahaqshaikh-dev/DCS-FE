@@ -93,6 +93,7 @@ html[data-bs-theme="dark"] {
         min-height: calc(100vh - $topbar-height);
         padding: 50px;
         margin-bottom: 120px;
+        background: url('../../../dsc-images/bg-pattern-dashboadr.png');
     }
     @media screen and (max-width: 575px) {
         .content {

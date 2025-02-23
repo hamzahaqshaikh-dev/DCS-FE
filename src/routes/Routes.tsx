@@ -13,8 +13,8 @@ import {
     publicProtectedFlattenRoutes,
 } from "./index";
 
-import {useLayoutContext} from "@/context/useLayoutContext.tsx";
-import {useAuthContext} from "@/context/useAuthContext.tsx";
+import {useLayoutContext} from "@/context/useLayoutContext";
+import {useAuthContext} from "@/context/useAuthContext";
 import React from "react";
 
 type IRoutesProps = object

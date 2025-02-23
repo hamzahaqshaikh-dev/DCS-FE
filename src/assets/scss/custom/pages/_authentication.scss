@@ -19,6 +19,13 @@
 
 // authentication pages background
 body {
+  &:not(.authentication-bg):not(.authentication-bg-pattern) {
+    background-image: url("/src/assets/dsc-images/bg-pattern-dashboadr.png");
+    background-size: auto; // Keeps original size
+    background-position: right top; // Adjust position
+    background-repeat: no-repeat;
+    background-attachment: fixed; // Ensures it stays fixed on screen
+  }
   &.authentication-bg {
     // background-color: #00acc1;
     background-size: cover;
@@ -50,7 +57,7 @@ body {
   }
 
   .highlighted-text {
-    color: #00BBB4;
+    color: #00bbb4;
   }
   .subtitle {
     font-size: 1.2rem;
