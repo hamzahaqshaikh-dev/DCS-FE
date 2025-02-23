@@ -120,7 +120,7 @@ const Login = () => {
                         />
                     </div>
 
-                    <div className="mb-3">
+                    <div className="mb-4">
                         <Controller
                             name="password"
                             control={control}
@@ -153,7 +153,7 @@ const Login = () => {
                     </div>
 
                     <div className="text-center d-grid">
-                        <Button variant="primary" type="submit">
+                        <Button variant="primary" type="submit" className="fs-4 fw-bold">
                             {t("Login")}
                         </Button>
                     </div>

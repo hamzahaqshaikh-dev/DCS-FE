@@ -76,23 +76,13 @@ const Register = () => {
   return (
     <>
       <AuthLayout
-        helpText={t(
-          "Don't have an account? Create your account, it takes less than a minute"
-        )}
-        bottomLinks={<BottomLink />}
+        heading="Set up your Password"
       >
 
         <VerticalForm
-          onSubmit={()=>{}}
+          onSubmit={() => { }}
           defaultValues={{}}
         >
-          <FormInput
-            label={t("Full Name")}
-            type="text"
-            name="fullname"
-            placeholder={t("Enter your name")}
-            containerClass={"mb-3"}
-          />
           <FormInput
             label={t("Email address")}
             type="email"
@@ -108,22 +98,22 @@ const Register = () => {
             containerClass={"mb-3"}
           />
           <FormInput
-            label={t("I accept Terms and Conditions")}
-            type="checkbox"
-            name="checkboxsignup"
-            containerClass={"mb-3"}
+            label={t("Confirm Password")}
+            type="password"
+            name="confirmPassword"
+            placeholder={t("Re-Enter your password")}
+            containerClass={"mb-5"}
           />
-
           <div className="text-center d-grid">
-            <Button variant="success" type="submit">
-              {t("Sign Up")}
+            <Button variant="primary" type="submit" className="fs-4 fw-bold">
+              {t("Set up Password")}
             </Button>
           </div>
         </VerticalForm>
 
         <div className="text-center">
-          <h5 className="mt-3 text-muted">{t("Sign up using")}</h5>
-          <SocialLinks />
+          <p className="mt-3 text-muted">{t("Need assistance? ")}<a href="#" className="text-muted underscore">Contact support</a></p>
+          {/* <SocialLinks /> */}
         </div>
       </AuthLayout>
     </>

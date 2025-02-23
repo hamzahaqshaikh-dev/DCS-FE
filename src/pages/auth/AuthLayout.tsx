@@ -39,14 +39,14 @@ const AuthLayout = ({
   return (
     <>
       <div className="account-pages">
-        <Container>
+        <div className="container-fluid">
           <Row className="justify-content-between vh-100">   {/* Left Section */}
-            <Col md={6} className="left-section p-3 m-p-5 d-flex flex-column justify-content-between">
-              <img src={LogoDark} alt="Logo" className="mb-4" width={150} />
+            <Col md={6} xl={7} className="left-section p-3 m-p-5 d-flex flex-column justify-content-between text-center text-md-start align-items-center align-items-md-start">
+              <img src={LogoDark} alt="Logo" className="mb-0 md-mb-4" width={200} />
               <div>
-                <h2 className="welcome-heading">
+                <h1 className="welcome-heading">
                   Welcome to <span className="highlighted-text">DCS</span>
-                </h2>
+                </h1>
                 <p className="subtitle">
                   From Vision to Venue <br />
                   <span className="highlight-text2">Streamlined & Impactful.</span>
@@ -54,18 +54,18 @@ const AuthLayout = ({
               </div>
             </Col>
             <Col
-              md={8}
+              md={6}
               lg={6}
               xl={isCombineForm ? 9 : 4}
-              className="d-flex flex-column justify-content-center align-items-center ml-auto"
+              className="d-flex flex-column justify-content-center align-items-center me-auto"
             >
-              <Card className="bg-pattern w-100">
-                <Card.Body className="p-4">
-                  <div className="text-start m-auto">
+              <Card className="bg-pattern">
+                <Card.Body className="py-3 px-4">
+                  <div className="text-start">
                     <span className="logo-lg">
-                      <h1>{heading}</h1>
+                      <h1 className="heading">{heading}</h1>
                     </span>
-                    <p className="text-muted">{helpText}</p>
+                    <p className="fs-5 mb-4">{helpText}</p>
                   </div>
                   {children}
                 </Card.Body>
@@ -73,7 +73,7 @@ const AuthLayout = ({
             </Col>
 
           </Row>
-        </Container>
+        </div>
       </div>
 
       {/* <footer className="footer footer-alt">

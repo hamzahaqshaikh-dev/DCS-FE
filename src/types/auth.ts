@@ -3,6 +3,7 @@ export type UsersType = {
   username: string
   email: string
   password: string
+  confirmPassword: string
   firstName: string
   lastName: string
   role: string
