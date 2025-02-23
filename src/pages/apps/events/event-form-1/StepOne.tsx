@@ -18,7 +18,7 @@ const StepOne = ({ control, errors, saveDraft, handleValidation }) => {
                     </Card.Header>
                     <Card.Body>
                         <Accordion defaultActiveKey="0">
-                            <Accordion.Item eventKey="0" className="mb-3">
+                            <Accordion.Item eventKey="0">
                                 <Accordion.Header className="d-flex align-items-center justify-content-between mt-0 bg-transparent">
                                     <div className="d-flex align-items-center">
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">1</h3>
@@ -103,7 +103,7 @@ const StepOne = ({ control, errors, saveDraft, handleValidation }) => {
                                     </Form>
                                 </Accordion.Body>
                             </Accordion.Item>
-                            <Accordion.Item eventKey="1" className="mb-3">
+                            <Accordion.Item eventKey="1">
                                 <Accordion.Header className="d-flex align-items-center justify-content-between mt-0 bg-transparent">
                                     <div className="d-flex align-items-center">
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">2</h3>
@@ -145,7 +145,7 @@ const StepOne = ({ control, errors, saveDraft, handleValidation }) => {
                                     </Form>
                                 </Accordion.Body>
                             </Accordion.Item>
-                            <Accordion.Item eventKey="2" className="mb-3">
+                            <Accordion.Item eventKey="2">
                                 <Accordion.Header className="d-flex align-items-center justify-content-between mt-0 bg-transparent">
                                     <div className="d-flex align-items-center">
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">3</h3>
@@ -177,7 +177,7 @@ const StepOne = ({ control, errors, saveDraft, handleValidation }) => {
                                     </Form>
                                 </Accordion.Body>
                             </Accordion.Item>
-                            <Accordion.Item eventKey="3" className="mb-3">
+                            <Accordion.Item eventKey="3">
                                 <Accordion.Header className="d-flex align-items-center justify-content-between mt-0 bg-transparent">
                                     <div className="d-flex align-items-center">
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">4</h3>
@@ -206,7 +206,7 @@ const StepOne = ({ control, errors, saveDraft, handleValidation }) => {
                                     </Form>
                                 </Accordion.Body>
                             </Accordion.Item>
-                            <Accordion.Item eventKey="4" className="mb-3">
+                            <Accordion.Item eventKey="4">
                                 <Accordion.Header className="d-flex align-items-center justify-content-between mt-0 bg-transparent">
                                     <div className="d-flex align-items-center">
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">5</h3>
@@ -241,7 +241,7 @@ const StepOne = ({ control, errors, saveDraft, handleValidation }) => {
                                     </Form>
                                 </Accordion.Body>
                             </Accordion.Item>
-                            <Accordion.Item eventKey="5" className="mb-3">
+                            <Accordion.Item eventKey="5">
                                 <Accordion.Header className="d-flex align-items-center justify-content-between mt-0 bg-transparent">
                                     <div className="d-flex align-items-center">
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">6</h3>
@@ -292,7 +292,7 @@ const StepOne = ({ control, errors, saveDraft, handleValidation }) => {
 
                                 {/* Circle */}
                                 <div
-                                    className={`rounded-circle border d-flex align-items-center justify-content-center ${index === 0 ? "bg-green text-white" : ""}`}
+                                    className={`rounded-circle border d-flex align-items-center justify-content-center border-green border-2 ${index === 0 ? "bg-green text-white" : ""}`}
                                     style={{ width: "24px", height: "24px", zIndex: 1 }}
                                 >
                                     {index === 0 && "✓"}
@@ -300,10 +300,9 @@ const StepOne = ({ control, errors, saveDraft, handleValidation }) => {
 
                                 {/* Vertical Line */}
                                 {index !== array.length - 1 && (
-                                    <div className="position-absolute" style={{
+                                    <div className="position-absolute bg-green" style={{
                                         width: "2px",
-                                        height: "100%", // Ensure full height between circles
-                                        backgroundColor: "#ccc",
+                                        height: "100%",
                                         left: "11px",
                                         top: "24px",
                                         zIndex: 0

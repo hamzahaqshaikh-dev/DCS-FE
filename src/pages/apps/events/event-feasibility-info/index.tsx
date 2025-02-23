@@ -5,7 +5,7 @@ import "@fullcalendar/react";
 import PageTitle from "../../../../components/PageTitle";
 import { Link } from "react-router-dom";
 
-const CalendarApp = () => {
+const EventFeasibilityInfo = () => {
   return (
     <>
       <PageTitle title="Event Feasibility Assessment application" />
@@ -85,4 +85,4 @@ const CalendarApp = () => {
   );
 };
 
-export default CalendarApp;
+export default EventFeasibilityInfo;

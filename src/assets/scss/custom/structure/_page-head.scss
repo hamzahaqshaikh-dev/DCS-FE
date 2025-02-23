@@ -51,9 +51,20 @@
     .organization-link:hover {
         text-decoration: underline;
     }
-
 }
-
+.recent_event_container {
+    border-style: $border-style;
+    border-color: $border-color;
+}
+.event-list-table-head {
+    background-color: #003b3f !important; /* Dark teal background */
+    text-align: left;
+}
+.event-list-table-head th {
+    padding: 20px 16px;
+    font-weight: lighter;
+    color: white !important; /* White text color */
+}
 .page-title-box-sm {
     .page-title {
         line-height: 1 !important;

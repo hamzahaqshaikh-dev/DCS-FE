@@ -97,7 +97,7 @@ const MenuItemWithChildren = ({
             <Icon className="hori-icon me-1"/>
           </span>
                 )}
-                <span className="menu-text"> {item.label} </span>
+                {/* <span className="menu-text"> {item.label} </span> */}
                 <span className="menu-arrow"></span>
             </Link>
 

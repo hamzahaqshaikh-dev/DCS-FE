@@ -18,7 +18,7 @@ const StepFour = ({ control, errors, saveDraft, handleValidation }) => {
                     </Card.Header>
                     <Card.Body>
                         <Accordion defaultActiveKey="0">
-                            <Accordion.Item eventKey="0" className="mb-3">
+                            <Accordion.Item eventKey="0">
                                 <Accordion.Header className="d-flex align-items-center justify-content-between mt-0 bg-transparent">
                                     <div className="d-flex align-items-center">
                                         <h3 className="badge bg-darkBlueShaded me-3 py-2 px-2 fw-light rounded-0 fs-5">✱</h3>
@@ -261,7 +261,7 @@ const StepFour = ({ control, errors, saveDraft, handleValidation }) => {
 
                                     {/* Circle */}
                                     <div
-                                        className={`rounded-circle border d-flex align-items-center justify-content-center 
+                                        className={`rounded-circle border d-flex align-items-center justify-content-center border-green border-2 
                         ${isCompleted ? "bg-green text-white" : ""}`}
                                         style={{ width: "24px", height: "24px", zIndex: 1 }}
                                     >
@@ -270,10 +270,9 @@ const StepFour = ({ control, errors, saveDraft, handleValidation }) => {
 
                                     {/* Vertical Line */}
                                     {index !== array.length - 1 && (
-                                        <div className="position-absolute" style={{
+                                        <div className="position-absolute bg-green" style={{
                                             width: "2px",
-                                            height: "100%", // Ensure full height between circles
-                                            backgroundColor: "#ccc",
+                                            height: "100%",
                                             left: "11px",
                                             top: "24px",
                                             zIndex: 0

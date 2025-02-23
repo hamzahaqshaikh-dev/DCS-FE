@@ -186,7 +186,7 @@ const EventFormGroup = ({
                 }}
             />
             {errors[name] && (
-                <Form.Control.Feedback type="invalid" className="d-block">
+                <Form.Control.Feedback type="invalid" className="d-block text-danger">
                     {errors[name]?.message}
                 </Form.Control.Feedback>
             )}

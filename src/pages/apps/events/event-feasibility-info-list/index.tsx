@@ -65,7 +65,7 @@ const EventFeasibilityInfoList = () => {
 
                   {/* Circle */}
                   <div
-                    className={`rounded-circle border d-flex align-items-center justify-content-center ${index === 0 ? "bg-green text-white" : ""}`}
+                    className={`rounded-circle border d-flex align-items-center justify-content-center border-green border-2 ${index === 0 ? "bg-green text-white" : ""}`}
                     style={{ width: "24px", height: "24px", zIndex: 1 }}
                   >
                     {index === 0 && "✓"}
@@ -73,10 +73,9 @@ const EventFeasibilityInfoList = () => {
 
                   {/* Vertical Line */}
                   {index !== array.length - 1 && (
-                    <div className="position-absolute" style={{
+                    <div className="position-absolute bg-green" style={{
                       width: "2px",
-                      height: "100%", // Ensure full height between circles
-                      backgroundColor: "#ccc",
+                      height: "100%",
                       left: "11px",
                       top: "24px",
                       zIndex: 0

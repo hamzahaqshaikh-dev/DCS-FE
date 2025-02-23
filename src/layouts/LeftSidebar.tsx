@@ -155,13 +155,9 @@ const LeftSidebar = ({ isCondensed, hideLogo }: LeftSidebarProps) => {
                             </span>
                             <span className="logo-lg">
                                 <img
-                                    src={
-                                        orientation === 'two-column'
-                                            ? logoDark2
-                                            : logoDark
-                                    }
+                                    src={logoDark}
                                     alt=""
-                                    height="80"
+                                    width='100%'
                                 />
                             </span>
                         </Link>

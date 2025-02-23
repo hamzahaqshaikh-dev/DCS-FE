@@ -9,10 +9,30 @@
             border-bottom-width: 1px;
         }
     }
+    .card-body {
+        border-style: $border-style;
+        border-color: $border-color;
+        border-top: 0;
+        padding: 0;
+        .accordion-item {
+            padding: 24px;
+            border-style: $border-style !important;
+            border-color: $border-color !important;
+            border-left: 0 !important;
+            border-right: 0 !important;
+            border-top: 0 !important;
+            &:last-child{
+                border-bottom: 0 !important;
+            }
+        }
+    }
 }
 .bg-green {
     background-color: $green;
 }
 .color-green {
     color: $green;
+}
+.border-green {
+    border-color: $green !important;
 }

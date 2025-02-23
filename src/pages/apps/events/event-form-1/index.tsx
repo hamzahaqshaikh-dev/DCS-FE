@@ -8,6 +8,7 @@ import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import StepThree from "./stepThree";
 import StepFour from "./stepFour";
+import { useNavigate } from "react-router-dom";
 
 // Validation Schema
 const validationSchema = yup.object().shape({
@@ -55,7 +56,6 @@ const validationSchema = yup.object().shape({
 
 
 
-
 const STORAGE_KEY = "eventFormDraft";
 
 const EventFormOne = () => {
@@ -70,7 +70,9 @@ const EventFormOne = () => {
     mode: "onChange",
   });
   const [stepWizard, setStepWizard] = useState(null);
+  const [currentPage, setCurrentPage] = useState(0);
   console.log('getValues =>', getValues())
+  const navigate = useNavigate()
   // Load draft on mount
   useEffect(() => {
     const savedData = localStorage.getItem(STORAGE_KEY);
@@ -84,37 +86,36 @@ const EventFormOne = () => {
   const saveDraft = () => {
     const formData = getValues();
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
-    alert("Draft saved successfully!");
   };
 
   // Validate before moving to the next step
   const handleValidation = handleSubmit(() => {
     saveDraft();
     stepWizard.nextStep();
+    setCurrentPage((prev) => prev + 1)
   });
 
   const onSubmit = (data) => {
     console.log("Final Submitted Data:", data);
-    alert("Form submitted successfully!");
-  
+    navigate('/organization-dashboard')
     // Example: Send data to API
-    fetch("https://your-api.com/submit-event", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((result) => console.log("Submission Result:", result))
-      .catch((error) => console.error("Error submitting form:", error));
+    // fetch("https://your-api.com/submit-event", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(data),
+    // })
+    //   .then((response) => response.json())
+    //   .then((result) => console.log("Submission Result:", result))
+    //   .catch((error) => console.error("Error submitting form:", error));
   };
 
   return (
     <div>
-      <StepWizard instance={setStepWizard}>
-        <StepOne control={control} errors={errors} saveDraft={saveDraft} handleValidation={handleValidation} />
-        <StepTwo control={control} errors={errors} saveDraft={saveDraft} handleValidation={handleValidation} />
-        <StepThree control={control} errors={errors} saveDraft={saveDraft} handleValidation={handleValidation} />
-        <StepFour control={control} errors={errors} saveDraft={saveDraft} handleValidation={handleValidation} />
+      <StepWizard transitions={{ enterRight: "animated fadeIn", exitLeft: "animated fadeOut" }} instance={setStepWizard}>
+        {currentPage === 0 && <StepOne control={control} errors={errors} saveDraft={saveDraft} handleValidation={handleValidation} />}
+        {currentPage === 1 && <StepTwo control={control} errors={errors} saveDraft={saveDraft} handleValidation={handleValidation} />}
+        {currentPage === 2 && <StepThree control={control} errors={errors} saveDraft={saveDraft} handleValidation={handleValidation} />}
+        {currentPage === 3 && <StepFour control={control} errors={errors} saveDraft={saveDraft} handleValidation={handleSubmit(onSubmit)} />}
       </StepWizard>
     </div>
   );

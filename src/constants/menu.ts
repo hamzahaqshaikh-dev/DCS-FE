@@ -49,11 +49,11 @@ const MENU_ITEMS: MenuItemTypes[] = [
     },
     {
         key: "Event Feasibility",
-        label: "Calendar View",
+        label: "Event Feasibility",
         isTitle: false,
         iconBlack: calender,
         iconWhite: calenderWhite,
-        url: "#",
+        url: "/apps/event-feasibility-info",
     },
     {
         key: "timeline-view",
@@ -114,7 +114,7 @@ const HORIZONTAL_MENU_ITEMS: MenuItemTypes[] = [
         isTitle: false,
         iconBlack: calender,
         iconWhite: calenderWhite,
-        url: "#",
+        url: "/apps/event-feasibility-info",
     },
     {
         key: "timeline-view",
@@ -906,7 +906,7 @@ const TWO_COl_MENU_ITEMS: MenuItemTypes[] = [
         isTitle: false,
         iconBlack: calender,
         iconWhite: calenderWhite,
-        url: "#",
+        url: "/apps/event-feasibility-info",
     },
     {
         key: "timeline-view",

@@ -18,6 +18,7 @@
     background: $menu-bg;
     box-shadow: var(--#{$prefix}box-shadow);
     border-right: $card-border-width solid $card-border-color;
+    margin-bottom: 150px;
 }
 
 // Logo
@@ -32,7 +33,7 @@
     height: 120px;
     transition: $menu-transition;
     padding: 0 $menu-item-padding-x;
-
+    background-color: $white;
     .logo-lg {
         height: $logo-lg-height;
     }
@@ -91,6 +92,7 @@ html[data-bs-theme="dark"] {
     .content {
         min-height: calc(100vh - $topbar-height);
         padding: 50px;
+        margin-bottom: 120px;
     }
     @media screen and (max-width: 575px) {
         .content {

@@ -74,7 +74,7 @@ const MenuItemWithChildren = ({
                         <span
                             className={`badge bg-${item.badge.variant} rounded-pill float-end`}
                         >
-              {item.badge.text}
+              {item.badge.text} asd
             </span>
                     )}
                 </Link>

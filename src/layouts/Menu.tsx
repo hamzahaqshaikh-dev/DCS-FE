@@ -180,11 +180,19 @@ const AppMenu = ({ menuItems }: AppMenuProps) => {
   const activeMenu = useCallback(() => {
     const div = document.getElementById("main-side-menu");
     let matchingMenuItem = null;
+
     if (div) {
       const items: any = div.getElementsByClassName("side-nav-link-ref");
+      console.log('items =>', items);
+
       for (let i = 0; i < items.length; ++i) {
         const trimmedURL = location?.pathname;
-        if (trimmedURL === items[i]?.pathname) {
+        const itemURL = items[i]?.pathname;
+
+        // Ignore menu items that contain '#' in their URL
+        if (!itemURL || itemURL.includes("#")) continue;
+
+        if (trimmedURL === itemURL) {
           matchingMenuItem = items[i];
           break;
         }
@@ -193,7 +201,9 @@ const AppMenu = ({ menuItems }: AppMenuProps) => {
       if (matchingMenuItem) {
         const mid = matchingMenuItem.getAttribute("data-menu-key");
         const activeMt = findMenuItem(menuItems, mid);
-        if (activeMt) {
+
+        // Ensure menuItem exists and does not have a '#' URL before proceeding
+        if (activeMt && activeMt.url && !activeMt.url.includes("#")) {
           setActiveMenuItems([
             activeMt["key"],
             ...findAllParent(menuItems, activeMt),
@@ -202,6 +212,7 @@ const AppMenu = ({ menuItems }: AppMenuProps) => {
       }
     }
   }, [location, menuItems]);
+
 
   useEffect(() => {
     activeMenu();
